@@ -42,6 +42,13 @@ Proceed on own initiative. Fully document. Paul is a geologist, self-taught buil
 5. **Single-laptop SPOF**; no git/CI/tests/backups story visible yet for the harness itself (agents verifying).
 6. **Market context:** much of the harness duplicates what Claude Code/agent platforms now ship natively (memory, hooks, subagents, MCP); differentiation should concentrate on geoscience domain products (GeoLedger/NEXUS) where Paul has unfair advantage.
 
+## Agent digest 1/3 received: PAi (full digest stored in synthesis; key points)
+- **CRITICAL SECURITY**: (1) Cloud Functions `api` endpoint is UNAUTHENTICATED, CORS *, uses Paul's stored refresh tokens → anyone with the URL can read his Gmail/Outlook/calendar, write to Firestore, burn API credits. Fix: verify Firebase ID tokens, restrict CORS. (2) Live secrets in plaintext: MS + Xero client secrets in CONCEPT.md §5.6, Google OAuth secret hardcoded in functions/src/index.ts and Creds.json (AGENTS.md falsely says "encrypted"). Rotate + purge. (3) Prompt-injection: raw email/Telegram text → LLM → JSON.parse → Firestore execution, no schema validation.
+- Reality vs vision: ~15-20% of documented vision built. Live: briefing pipeline (7am/9pm Telegram outbound), email triage (Gmail+Graph), unified calendar, brain parser, 13-page PWA. Designed-only: proactive engine, 8 autonomous workflows, 3-store memory, digital twin, 30+ integrations (actual: 5). Telegram INBOUND disabled since 2026-06-11; /chat built but NOT deployed (needs `firebase deploy`). Xero registered, never wired.
+- Zero automated tests; 900-line monolith router; laptop-scheduler split-brain (VBS/BAT wrappers = flash bug, zombie processes); silent failure history; possible duplicate 7am briefing.
+- Product verdict: ADHD-first "Donna" framing is genuinely differentiated as a personal exoskeleton, NOT commercial (Claude/ChatGPT native assistants eating category). Sellable asset = the playbook, not the codebase.
+- Top recs: 1 lock API (hours), 2 rotate secrets (hours), 3 deploy /chat + actions, 4 cloud-side Telegram webhook (kill laptop pollers), 5 move schedulers to cloud, 6 wire Xero /finance/summary, 7 failure alerting on token expiry, 8 archive dead surface (backend/, desktop/, mobile/), 9 Zod-validate LLM outputs + tests, 10 one metric: "days/week PAi changed what Paul did next".
+
 ## Next steps
 - [ ] Collect 3 agent digests (AEOS, PAi, Alfred/Harness_Review)
 - [ ] Synthesize into review pack: 00_EXECUTIVE_SUMMARY, 01_STATE_OF_THE_HARNESS, 02_GAP_TO_OBJECTIVES, 03_STREAMLINE_CONSISTENTISE, 04_BEST_IN_MARKET_PLAY, 05_90_DAY_PLAN
