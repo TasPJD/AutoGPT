@@ -63,8 +63,23 @@ Proceed on own initiative. Fully document. Paul is a geologist, self-taught buil
 - Heartbeat disabled since 06-11. No scheduler, no backups, no CI. Everything on one Windows laptop.
 - Top recs: fix NameError (15min), fix find bug (1-2h), wire PatternEngine per WIRING.md + schedule (0.5d), aeos_paths.py config (1d), pytest suite for pure functions (1d), generalise transcript discovery (2-4h), AutoConfig v0.1 as human-in-loop promote cmd (1d), merge ContextGraph into catalog (1-2d), outcome metrics (1d), ops hygiene bundle (1d). "Highest-leverage week": items 1-4.
 
-## Next steps
-- [ ] Collect 3 agent digests (AEOS, PAi, Alfred/Harness_Review)
-- [ ] Synthesize into review pack: 00_EXECUTIVE_SUMMARY, 01_STATE_OF_THE_HARNESS, 02_GAP_TO_OBJECTIVES, 03_STREAMLINE_CONSISTENTISE, 04_BEST_IN_MARKET_PLAY, 05_90_DAY_PLAN
-- [ ] Commit + push to claude/harlin-harness-review-lyqz0a
-- [ ] Consider HTML dashboard artifact for Paul
+## STATUS 2026-07-03 (durable checkpoint)
+Review pack DELIVERED + pushed (commit ca93619, 27b0891):
+- 00_EXECUTIVE_SUMMARY, 01_FINDINGS, 02_RECOMMENDATIONS, 03_ANTHROPIC_COMPARISON, 04_ACTION_PLAN, 05_DECISION_SHEET, 06_GATE_REGISTER.
+- Paul asked (mid-work) to add Anthropic-stack comparison → done (03).
+- Paul then asked: "What can you proceed with now without my input?" → I launched 3 build-ahead agents:
+  1. PAi security remediation patch doc (agent a6866ba9) — exact auth fix + secret rotation + purge list.
+  2. AEOS cog-sprint patch doc (agent af6965d7) — mcp_server NameError, capture find-bug, transcript discovery, aeos_paths.py, WIRING steps.
+  3. GeoLedger commercial pack draft (agent a8ad3602) — positioning, pricing, product page, case studies, GTM.
+  Will save outputs as 07_PAI_SECURITY_PATCHES.md, 08_AEOS_COG_PATCHES.md, 09_GEOLEDGER_COMMERCIAL_PACK.md.
+- Also built 06_GATE_REGISTER myself from Harness_Review TODO.md (batch-confirm ~10 FYIs; decisions→05; park rest w/ dates).
+
+## What I CAN'T do without Paul (remote session, read-only MCP)
+- Cannot write to his laptop disk (HarLin_MCP is read-only; write tools untested/likely denied). All code fixes delivered as patch docs for a laptop-side Claude Code session to apply.
+- Cannot rotate secrets / deploy Firebase / touch Stripe (needs his consoles + auth).
+- Cannot answer the genuine decisions (D1-D12 in 05).
+- Stripe + Zapier connectors need his authorisation in claude.ai settings.
+
+## Remaining optional
+- [ ] Consider HTML dashboard artifact summarizing the review (glossy, for Paul) — only if he wants it.
+- [ ] REV-002 in Sep (external lineage).
