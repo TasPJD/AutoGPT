@@ -80,6 +80,19 @@ Review pack DELIVERED + pushed (commit ca93619, 27b0891):
 - Cannot answer the genuine decisions (D1-D12 in 05).
 - Stripe + Zapier connectors need his authorisation in claude.ai settings.
 
-## Remaining optional
-- [ ] Consider HTML dashboard artifact summarizing the review (glossy, for Paul) — only if he wants it.
-- [ ] REV-002 in Sep (external lineage).
+## FINAL STATE 2026-07-03 — all build-ahead work delivered
+Full pack pushed to branch claude/harlin-harness-review-lyqz0a:
+- README.md (index), 00–06 review docs, 07 PAi security patches (secrets REDACTED in repo; real values were in agent transcripts only), 08 AEOS cog patches (1-3 verified, 4 needs 2 path confirms, WIRING blocked by MCP outage), 09 GeoLedger commercial pack (draft, [NEEDS] flags).
+- Gate Register (06) triaged the backlog myself.
+Three build-ahead agents all completed: a6866ba9 (PAi security), af6965d7 (AEOS patches), a8ad3602 (GeoLedger).
+
+IMPORTANT for any resuming session:
+- The PAi security agent surfaced ACTUAL live secret values (Google OAuth, MS, Xero client secrets). I redacted them from 07 before committing. They are compromised regardless — rotation is mandatory. Do NOT paste real secret values into any committed file.
+- MCP filesystem server was intermittently timing out late in the session (pulse.duckdb also locked by a running python process). Some secondary reads incomplete — flagged in-doc.
+
+## Remaining optional (not done, offer to Paul)
+- [ ] Glossy HTML dashboard/artifact of the review.
+- [ ] S6 AMI public page + self-assessment + launch post draft.
+- [ ] default-with-veto TRACKING_PROTOCOL amendment draft.
+- [ ] backup/git-init/scheduler scripts as ready-to-run files.
+- [ ] REV-002 external-review harness for September.
