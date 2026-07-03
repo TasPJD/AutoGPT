@@ -21,6 +21,11 @@
 | 07 | `07_PAI_SECURITY_PATCHES.md` | Apply the auth fix + rotate secrets (values redacted here; locations preserved). **Do first.** |
 | 08 | `08_AEOS_COG_PATCHES.md` | Apply the 3 verified bug fixes + config module that turn the learning loop. |
 | 09 | `09_GEOLEDGER_COMMERCIAL_PACK.md` | Draft pricing, product page, case studies, GTM for the primary wedge. |
+| 10 | `10_APPLY_RUNBOOK.md` | **Single ordered checklist to execute the critical path locally** (unstick Pulse → security → cog → survivability → gate), tunnel-independent. |
+| 11 | `11_S6_AMI_LAUNCH.md` | Agentic Maturity Index: framework, self-assessment tool spec, launch post — the cheapest marketing play. |
+| 12 | `12_DEFAULT_WITH_VETO_AMENDMENT.md` | Draft Tracking-Protocol amendment that breaks the confirmation bottleneck (Decision D3). |
+
+**`scripts/`** — ready-to-run PowerShell: `backup_aeos.ps1` (nightly brain backup), `schedule_aeos_tasks.ps1` (register the standing cadence), `git_init_harness.ps1` (version-control the harness, with a PAi secret-purge guard).
 
 `WORKING_NOTES.md` holds raw agent digests and provenance.
 
