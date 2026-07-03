@@ -191,11 +191,14 @@ ENV_FILE = RUNTIME / ".env"
 
 CLAUDE_PROJECTS_DIR = Path.home() / ".claude" / "projects"
 
-# CONFIRM these two on the laptop (could not re-read alfred.py / context_graph.py):
-#   rg -n "miniconda|OneDrive" runtime/agents/alfred.py runtime/brain/context_graph.py
+# CONFIRMED against alfred.py on 2026-07-03 (laptop session):
 MINICONDA_PYTHON = Path(os.environ.get("AEOS_PYTHON", "C:/Users/pauld/miniconda3/python.exe"))
-ONEDRIVE_DIR = Path(os.environ.get("AEOS_ONEDRIVE", "C:/Users/pauld/OneDrive"))
+# NOTE: the earlier best-effort guess "C:/Users/pauld/OneDrive" was WRONG.
+# alfred.py uses the tenant OneDrive with an "/AI" suffix (ONEDRIVE_AI):
+ONEDRIVE_DIR = Path(os.environ.get("AEOS_ONEDRIVE", "C:/Users/pauld/OneDrive - HarLin Consulting Pty Ltd/AI"))
 ```
+
+**Confirmation (laptop session, 2026-07-03):** `alfred.py` defines `PYW = Path("C:/Users/pauld/miniconda3/python.exe")` (guess correct) and `ONEDRIVE_AI = Path("C:/Users/pauld/OneDrive - HarLin Consulting Pty Ltd/AI")  # Chesh reads here` (guess was wrong — corrected above). `context_graph.py` not separately re-checked; grep it if it also references these before relying on the module there.
 
 ### Example adoption in `gateway/mcp_server.py`
 ```diff
@@ -213,16 +216,28 @@ Then `aeos_nexusboard`'s `NEXUS_DB_PATH = NEXUS_DB` and `aeos_file_search`'s `IN
 
 ---
 
-## Wiring checklist (PatternEngine.prj/WIRING.md) — BLOCKED, read laptop-side
+## Wiring checklist (PatternEngine.prj/WIRING.md) — CONFIRMED 2026-07-03
 
-The MCP filesystem server timed out on every attempt to read `PatternEngine.prj/WIRING.md` (degraded after the first three reads, ~12 min of retries). Not fabricated. Known only from framing: step 1 = a **SessionStart learning-injection** hook; step 2 = wire **2 gateway tools**. Laptop-side session should:
-1. Open `PatternEngine.prj/WIRING.md` directly and follow steps 1–2 verbatim.
-2. Note Patch 3 already generalises SessionStart transcript discovery; the learning-injection hook likely sits alongside it in `C:/AI/.claude/settings.json` under `hooks.SessionStart`.
-3. The 2 gateway tools are almost certainly new `@mcp.tool()` functions in the same `gateway/mcp_server.py` — apply Patch 1's `duckdb`-import convention to any new DuckDB-touching tool so the NameError isn't reintroduced.
+Read in full on the laptop session. The two live-runtime steps (both additive, low-risk, held only because they touch code that runs every session):
+
+**Step 1 — SessionStart learning injection.**
+- Where: `runtime/pulse/session_handoff.py` (runs at the SessionStart hook).
+- Do: add a fully try/except-wrapped block that reads `runtime/agents/pattern_engine_data/learning_queue.json`, takes the top N high-confidence candidates, and appends a short "Recent learnings under review" section to the injected `additionalContext`. If the file is missing/malformed, inject nothing and never raise (handoff must never break session start).
+- Verify: one clean session start after the change.
+
+**Step 2 — two MCP gateway tools.**
+- Where: `runtime/gateway/mcp_server.py` (alongside the existing 8 tools).
+- Add `aeos_learnings_recent(limit=10)` → reads `learning_queue.json`, returns top candidates (theme, section, count, confidence, examples); and `aeos_promotion_log(limit=20)` → returns what AutoConfig has promoted (reads an audit log; empty until AutoConfig exists).
+- **Apply Patch 1's `import duckdb` convention** to either new tool if it touches a DuckDB file, so the NameError isn't reintroduced.
+- Verify: the gateway still lists all its tools next session.
+
+**Deferred (do NOT do now):** Step 3 AutoConfig auto-apply (gated — real blast radius; requires standing authorisation for high-confidence non-destructive learnings only, per-application audit log, memory-hygiene pass, one-tap Telegram approval for the rest). Step 4 optional `--use-llm` Haiku semantic clustering (~$0.05/run, no blast radius, add anytime). Until Step 3 is built, promotion stays a manual human action from `LEARNING_QUEUE.md` — which is what `05_DECISION_SHEET.md` D2's "human-in-the-loop `promote`" command builds.
 
 ---
 
-### Ready to apply now
+### Ready to apply now (all gaps closed 2026-07-03)
 - **Patches 1, 2, 3:** fully verified, copy-paste ready.
-- **Patch 4:** module ready; confirm `MINICONDA_PYTHON`/`ONEDRIVE_DIR` with one `rg`.
-- **Wiring:** open WIRING.md laptop-side.
+- **Patch 4:** module ready; both path literals now confirmed (ONEDRIVE_DIR corrected).
+- **Wiring:** steps 1–2 confirmed above; apply then verify one clean session start + tool listing.
+
+**Suggested apply order for the laptop-side session:** Patch 1 (15 min, unblocks 2 dead tools) → verify all 8 gateway tools list → Patch 2 (file capture) → Patch 3 (transcript discovery) → Wiring Step 1 + 2 → build the human-in-the-loop `promote` command (D2) → schedule the miners. That sequence turns the cog end-to-end.
