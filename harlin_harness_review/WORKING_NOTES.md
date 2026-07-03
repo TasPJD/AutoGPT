@@ -90,9 +90,20 @@ IMPORTANT for any resuming session:
 - The PAi security agent surfaced ACTUAL live secret values (Google OAuth, MS, Xero client secrets). I redacted them from 07 before committing. They are compromised regardless — rotation is mandatory. Do NOT paste real secret values into any committed file.
 - MCP filesystem server was intermittently timing out late in the session (pulse.duckdb also locked by a running python process). Some secondary reads incomplete — flagged in-doc.
 
-## Remaining optional (not done, offer to Paul)
-- [ ] Glossy HTML dashboard/artifact of the review.
-- [ ] S6 AMI public page + self-assessment + launch post draft.
-- [ ] default-with-veto TRACKING_PROTOCOL amendment draft.
-- [ ] backup/git-init/scheduler scripts as ready-to-run files.
+## SESSION 2 (Paul on laptop) — delivered
+- Confirmed WIRING.md steps 1-2 + corrected ONEDRIVE_DIR literal in 08 (guess was wrong: real = "C:/Users/pauld/OneDrive - HarLin Consulting Pty Ltd/AI").
+- 10_APPLY_RUNBOOK.md — single ordered local checklist (unstick Pulse PID 254044 → security → cog → survivability → gate). Tunnel-independent.
+- scripts/backup_aeos.ps1, schedule_aeos_tasks.ps1, git_init_harness.ps1 (with PAi secret-purge guard).
+- 11_S6_AMI_LAUNCH.md (framework + self-assessment spec + launch post).
+- 12_DEFAULT_WITH_VETO_AMENDMENT.md (Tracking Protocol amendment for D3).
+- README updated. All pushed (through commit c6c93b7 + this notes update).
+
+## BLOCKED on HarLin_MCP tunnel (down/read-only, flapping all session)
+- Kill PID 254044 (pulse.duckdb lock) — needs harlin_run or Paul local. Step 0 of runbook.
+- Apply patches to C:\AI — needs harlin_fs_edit/write (tunnel) or Paul's local Claude Code session.
+- These are the ONLY two open tasks; both are laptop-side. Runbook 10 lets Paul do them himself now.
+- Stripe + Zapier connectors still need Paul's auth in claude.ai settings.
+
+## Optional remaining (offer only)
+- [ ] Glossy HTML review dashboard artifact.
 - [ ] REV-002 external-review harness for September.
