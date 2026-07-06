@@ -1,0 +1,32 @@
+{
+  "name": "@geoledger/semantic-core",
+  "version": "0.1.0",
+  "description": "GeoLedger semantic/vector search core: offline-first embeddings, exact vector index, hybrid (vector + BM25-lite) search over drill-core logging data. Zero runtime dependencies.",
+  "type": "module",
+  "main": "./src/main.js",
+  "exports": {
+    ".": "./src/main.js",
+    "./embedder": "./src/embedder.js",
+    "./index": "./src/index.js",
+    "./corpus": "./src/corpus.js",
+    "./search": "./src/search.js",
+    "./similar": "./src/similar.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\""
+  },
+  "keywords": [
+    "geology",
+    "drill-core",
+    "semantic-search",
+    "vector-search",
+    "embeddings",
+    "offline-first",
+    "geoledger"
+  ],
+  "license": "UNLICENSED",
+  "private": true
+}
