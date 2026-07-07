@@ -45,6 +45,18 @@ Confidence trajectory across the session (delivery metrics over time): most cand
 start weak and settle, or start strong and crumble on curveballs. The arc chart names
 the pattern and picks the drill.
 
+**Physiological channel (opt-in wearable, 03 §8):** when a heart-rate source is
+connected, the arc gains an HR-over-baseline track aligned to the transcript:
+- Spike moments: which question spiked you, and did your delivery show it (fillers/pace
+  jump) or did you mask it well — both are useful findings, coached differently.
+- Recovery time: seconds from spike back toward baseline (composure IS recovery speed).
+- Cross-session inoculation curve: average HR-over-baseline per session, trending down —
+  the objective proof the practice works, and the strongest stat on the progress card.
+- Coach framing rule: HR is *performance* signal ("your body noticed the curveball
+  before your voice did"), NEVER health commentary or anxiety diagnosis (05 §3a, §4).
+  No composite-score penalty for high HR — you can be nervous and brilliant; the score
+  measures the performance, the arc explains it.
+
 ## 3. The rubric — Speech/Pitch mode (fast follow)
 Same delivery metrics plus: open strength (first 30s hook), structure signposting,
 message discipline (one core message detectable?), audience Q&A handling after the talk,
@@ -74,6 +86,8 @@ faces, phone-checking at low energy) — reactions ARE feedback in this mode.
 ---
 
 ## UPDATE LOG
+- 2026-07-07 — v0.2: composure arc gains opt-in physiological channel (HR-over-baseline,
+  spike/recovery, inoculation curve) per Paul's wearable directive.
 - 2026-07-06 — v0.1. All target bands are literature-typical defaults (grade: read);
   calibrate against real sessions.
 

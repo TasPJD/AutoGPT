@@ -12,6 +12,8 @@ recommendation awaiting Paul; `STANDING` = binding.*
 | D-005 | 2026-07-06 | PROPOSED | MVP scope = interviews only; speech/pitch mode is fast-follow (card open question). |
 | D-006 | 2026-07-06 | STANDING | Zero-deception realism + the refusals (concept card §8, 05 §1-2, §5). Ethics file is binding; only Paul amends, dated. |
 | D-007 | 2026-07-06 | PROPOSED | Monetisation posture: free first session → credit packs → subscription later. Confirm at G2. |
+| D-008 | 2026-07-07 | STANDING (Paul) | Wearable biometrics channel is in scope: opt-in HR from fitness devices deepens the assessment (composure arc, spike/recovery, inoculation curve). Live tier via Web Bluetooth BLE HR (Phase 2b); Fitbit/Health cloud sync tier Phase 4+. Data rules 05 §3a binding. |
 
 ## UPDATE LOG
+- 2026-07-07 — D-008 added (Paul's wearable directive).
 - 2026-07-06 — created with D-001…D-007.

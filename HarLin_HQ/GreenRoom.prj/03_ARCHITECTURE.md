@@ -105,9 +105,40 @@ mix), the video tier price floor rises or the tier dies. Meter everything from d
   the AutoGPT platform. If later we want agentic workflows (e.g. JD-research agent that
   briefs the interviewer), rnd/autogpt_server blocks are available — do not couple early.
 
+## 8. Biometrics layer — wearable heart rate (opt-in; Paul's addition 2026-07-07)
+
+Physiological signal turns the composure story from inference ("your voice tightened")
+into measurement ("your HR hit 112 when the salary question landed — and here's how it
+sounded"). Two ingestion tiers, both behind one `BiometricsSource` interface (mirror of
+the AvatarProvider seam — no vendor lock-in above it):
+
+1. **Live tier — Web Bluetooth, in-browser.** The standard BLE Heart Rate Service profile
+   is readable directly from Chrome/Edge with no native app — fits the PWA rail. Covers
+   chest straps (Polar, Wahoo) and watches with HR-broadcast mode (Garmin, Polar, Amazfit,
+   Apple Watch via companion broadcast apps). Real-time samples timestamped against the
+   session clock → live alignment with transcript moments.
+2. **Sync tier — vendor cloud APIs, post-session.** Fitbit does NOT broadcast standard
+   BLE HR; its intraday HR comes via the Fitbit Web API after the fact (intraday access
+   requires their approval — apply early). Same pattern for Google Health Connect /
+   Apple HealthKit later (HealthKit = native iOS only, so it waits for the native rail).
+   Debrief pipeline pulls the session window, aligns on timestamps, coarser granularity.
+
+Design rules:
+- **Baseline first:** capture 1-2 min resting HR during setup (persona intro screen doubles
+  as the calm window). All in-session numbers are reported relative to baseline — absolute
+  HR varies too much person-to-person to score raw.
+- Degrade gracefully: no device → composure arc runs on voice metrics alone, as designed.
+  Biometrics is an enhancement channel, never a requirement.
+- COGS: ~zero (browser API / user's own vendor account). Product value per dollar is the
+  best in the whole stack.
+- Data handling per 05 §3a (biometric data rules — stricter than everything else).
+
 ---
 
 ## UPDATE LOG
+- 2026-07-07 — v0.2: added §8 biometrics layer (Paul's directive: tap fitness devices,
+  e.g. Fitbit, for assessment depth). Vendor API facts knowledge-dated; verify Fitbit
+  intraday approval process + current Web Bluetooth device coverage at build time.
 - 2026-07-06 — v0.1. Provider table is knowledge-dated; re-verify at spike.
 
 ## OPEN QUESTIONS

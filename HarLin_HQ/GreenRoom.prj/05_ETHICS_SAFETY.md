@@ -45,6 +45,25 @@ AI interaction. Design once for the strictest regime; verify current requirement
   (retention, training use) before signing — this is a selection criterion, not a nice-to-have (03 §3).
 - Data residency + Australian Privacy Act compliance review before public launch.
 
+### 3a. Biometric data (wearable HR — strictest tier of everything we touch)
+Heart-rate data is health information: sensitive-category under GDPR and the Australian
+Privacy Act, with vendor-side rules on top (Fitbit/Google prohibit using their health
+data for advertising and require limited-use compliance). Rules:
+- Opt-in per session, revocable, never required for any feature; the product is whole
+  without it (03 §8 degrade rule).
+- We store derived, session-scoped series (HR-relative-to-baseline aligned to session
+  timestamps) — not a general health record. No resting-HR history, no data outside the
+  session window, no inferences about health or anxiety conditions, ever.
+- User-deletable with the session, one click; same no-training / no-sale / no-sharing
+  covenant as recordings (§3).
+- Coach language treats HR as performance telemetry, never diagnosis. "Your heart rate
+  spiked" — yes. "You have anxiety" — never (see §4: rehearsal, not therapy).
+- HR data never appears on the share artifact by default; explicit extra opt-in to
+  include the inoculation-curve stat (it's compelling — that's exactly why it must be
+  the user's deliberate choice to publish).
+- Vendor-API compliance review (Fitbit limited-use, Health Connect policies) is part of
+  the integration checklist, before the first OAuth screen ships.
+
 ## 4. Psychological safety rails
 - This is rehearsal, not therapy. No anxiety-treatment claims (inherits A-branch ethic:
   never monetise the vulnerable moment — no upsells triggered by poor performance).
@@ -72,6 +91,7 @@ AI interaction. Design once for the strictest regime; verify current requirement
 ---
 
 ## UPDATE LOG
+- 2026-07-07 — v0.2: added §3a biometric data rules for the wearable HR channel.
 - 2026-07-06 — v0.1. Legal notes are knowledge-dated (≤ Jan 2026); counsel/current-law
   check required before public launch (EU AI Act application dates, AU privacy reform).
 

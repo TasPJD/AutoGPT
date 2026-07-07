@@ -14,7 +14,9 @@ account(s) created by Paul (accounts/billing are Paul-actions, not agent-actions
 **Question answered:** does the fear response fire, and what does a session cost?
 - Configure a stock interviewer persona on provider #1 (Tavus) and #2 (HeyGen) trial
   tiers using our INTERVIEWER_SYSTEM prompt (as far as their config allows).
-- Paul does the same scripted 10-min mock interview on each.
+- Paul does the same scripted 10-min mock interview on each — WEARING HIS WATCH/HR
+  device. "Did the fear response fire" becomes a number (HR vs resting baseline), not
+  a vibe. Record the readings in the spike scorecard.
 - Deliverables: filled scorecard (nerves y/n, latency, interruptions, $/session, BYO-LLM
   ergonomics) → D-004 provider decision + LESSONS_LOG entries.
 - **Kill check K1:** no nerves on either + audio-fallback test also flat → stop/re-scope.
@@ -53,6 +55,18 @@ account(s) created by Paul (accounts/billing are Paul-actions, not agent-actions
 - **Exit → G1:** targets per concept card §6 (≥60% completion, ≥40% return-in-7-days,
   ≥7/10 "felt real"). **Kill check K2** on miss.
 
+## Phase 2b — Live biometrics channel (slots into weeks 4-5, small)
+- `BiometricsSource` interface + Web Bluetooth HR implementation (standard BLE Heart
+  Rate Service; browser-native, no backend cost). Baseline capture in setup flow.
+- Composure arc gains the HR-over-baseline track + spike/recovery/inoculation stats
+  (04 §C physiological channel). Consent + data rules per 05 §3a are part of this
+  phase's definition-of-done, not a fast-follow.
+- Defer to Phase 4+: Fitbit Web API sync tier (OAuth + intraday-access approval — Paul
+  should APPLY for Fitbit intraday access early, lead times are long), Health Connect,
+  HealthKit (waits for native rail).
+- Rationale for early slot: near-zero COGS, unique differentiator no incumbent has, and
+  it makes G0/G1 "felt real" evidence objective.
+
 ## Phase 4 — Willingness-to-pay + speech mode (post-G1)
 - Mock paywall/credit purchase live for beta cohort → **G2** decision: brand, name,
   entity, pricing (Paul). **Kill check K3.**
@@ -73,6 +87,8 @@ account(s) created by Paul (accounts/billing are Paul-actions, not agent-actions
 ---
 
 ## UPDATE LOG
+- 2026-07-07 — v0.2: Phase 2b (live biometrics via Web Bluetooth) added; Phase 0 spike
+  now measures HR; Fitbit cloud sync deferred to Phase 4+ with early access application.
 - 2026-07-06 — v0.1. Week counts are estimates for a solo agent+Paul cadence; gates, not
   dates, govern.
 

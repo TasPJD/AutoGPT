@@ -29,7 +29,10 @@ speaking slot lands in someone's calendar.
 
 ## 4. The share artifact
 The **before/after progress card**: side-by-side stats (filler words, pace, confidence
-score, answer structure) from first session to latest, optionally with a 10-second clip.
+score, answer structure) from first session to latest, optionally with a 10-second clip
+— and, when a wearable is connected and the user explicitly opts in, the killer stat:
+**average heart rate under questioning, session 1 vs now** (objective stress-inoculation
+proof; see 05 §3a for the publish-consent rule).
 "I did 6 mock interviews with an AI before the real one — look at the delta." Shareable to
 LinkedIn (this product's TikTok is LinkedIn). Nobody shares failure; everybody shares
 improvement.
@@ -58,7 +61,8 @@ session at retail ≥ $5 equivalent (see 03_ARCHITECTURE §5).
 **Failure mode:** the uncanny-valley/latency gap — avatar lag or dead-fish affect breaks
 the illusion, nerves never fire, and it becomes a worse Yoodli. **Earliest cheap test:**
 Phase 0 spike — Paul does one 10-minute mock interview on a raw provider demo (Tavus/HeyGen
-trial tier) BEFORE any product code is written. If Paul's pulse doesn't go up, stop and
+trial tier) BEFORE any product code is written, wearing his HR device: "pulse goes up"
+is measured against resting baseline, not felt. If Paul's pulse doesn't go up, stop and
 re-scope to audio-first with a static portrait. Second failure mode: unit economics (avatar
 minutes too expensive) — killed by the same spike's cost readout.
 
@@ -90,6 +94,8 @@ minutes too expensive) — killed by the same spike's cost readout.
 ---
 
 ## UPDATE LOG
+- 2026-07-07 — v0.2: wearable HR channel woven in (Paul's directive) — measured Phase 0
+  spike test, HR stat on the share artifact (opt-in). Card still awaits sign-off.
 - 2026-07-06 — v0.1 drafted for Paul's review. All scores/targets are the framing agent's
   proposals (`reasoned` grade), not observed data.
 
