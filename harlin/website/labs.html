@@ -1,0 +1,275 @@
+<title>HarLin Labs — Instruments for professions that work in the field</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --ground:#0D1215; --panel:#141B1F; --panel2:#10171B; --line:#212B30;
+  --ink:#EAF0F1; --muted:#93A6AC; --faint:#5E7178;
+  --teal:#3BD1BC; --amber:#CE8B4A; --violet:#9D8CFF;
+  --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,"Segoe UI",system-ui,Roboto,"Helvetica Neue",sans-serif;
+}
+@media (prefers-color-scheme: light){
+  :root{ --ground:#F1F4F3; --panel:#FFFFFF; --panel2:#E8EEEC; --line:#D5DFDC;
+    --ink:#17252B; --muted:#54696F; --faint:#82949A;
+    --teal:#0D8F7D; --amber:#A5661F; --violet:#6A55E0; }
+}
+:root[data-theme="dark"]{ --ground:#0D1215; --panel:#141B1F; --panel2:#10171B; --line:#212B30;
+  --ink:#EAF0F1; --muted:#93A6AC; --faint:#5E7178;
+  --teal:#3BD1BC; --amber:#CE8B4A; --violet:#9D8CFF; }
+:root[data-theme="light"]{ --ground:#F1F4F3; --panel:#FFFFFF; --panel2:#E8EEEC; --line:#D5DFDC;
+  --ink:#17252B; --muted:#54696F; --faint:#82949A;
+  --teal:#0D8F7D; --amber:#A5661F; --violet:#6A55E0; }
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--teal);color:var(--ground)}
+a{color:var(--teal);text-decoration:none}
+a:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.shell{max-width:1080px;margin:0 auto;padding:0 26px}
+section{padding:86px 0}
+.eyebrow{font:600 11px/1 var(--mono);letter-spacing:.28em;color:var(--teal);
+  text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--teal)}
+h2{font-family:var(--mono);font-weight:700;font-size:clamp(24px,3.4vw,36px);
+  line-height:1.18;letter-spacing:-.01em;text-wrap:balance;max-width:24ch}
+.lede{color:var(--muted);max-width:64ch;margin-top:16px;font-size:18px}
+
+header{display:flex;align-items:center;justify-content:space-between;
+  padding:20px 26px;border-bottom:1px solid var(--line)}
+.wordmark{font:800 16px/1.3 var(--mono);letter-spacing:.22em}
+.wordmark small{display:block;font:500 9px/1 var(--mono);letter-spacing:.34em;color:var(--faint)}
+header nav{font:12px/1 var(--mono);letter-spacing:.1em;display:flex;gap:22px}
+header nav a{color:var(--muted)} header nav a:hover{color:var(--teal)}
+
+/* hero */
+#hero{padding:110px 0 90px;position:relative;overflow:hidden}
+#flow{position:absolute;inset:0;width:100%;height:100%}
+#hero .shell{position:relative}
+h1{font-family:var(--mono);font-weight:800;font-size:clamp(28px,4.6vw,52px);
+  line-height:1.14;letter-spacing:-.02em;max-width:20ch;text-wrap:balance}
+h1 em{font-style:normal;color:var(--teal)}
+.heroSub{margin-top:24px;color:var(--muted);max-width:56ch;font-size:19px}
+
+/* pipeline legend */
+.legend{display:flex;gap:26px;flex-wrap:wrap;margin-top:48px;
+  font:600 10px/1 var(--mono);letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+.legend span{display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.d-prod{background:var(--teal)} .d-pre{background:var(--amber)}
+.d-mvp{background:var(--violet)} .d-con{background:var(--faint)}
+
+/* product rows */
+.stage{margin-top:64px}
+.stage h3{font:700 12px/1 var(--mono);letter-spacing:.3em;color:var(--faint);
+  text-transform:uppercase;display:flex;align-items:center;gap:14px}
+.stage h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+@media (max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);background:var(--panel);padding:24px 22px 26px;
+  border-radius:3px;position:relative;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--teal)}
+.card .st{position:absolute;top:20px;right:18px}
+.card h4{font:700 17px/1.35 var(--mono);letter-spacing:-.01em;margin-bottom:8px;padding-right:20px}
+.card .fam{font:600 9px/1 var(--mono);letter-spacing:.24em;color:var(--faint);
+  text-transform:uppercase;margin-bottom:12px}
+.card p{color:var(--muted);font-size:14.5px}
+.card.flag{grid-column:1/-1;background:linear-gradient(150deg,
+  color-mix(in srgb,var(--teal) 8%,var(--panel)),var(--panel) 60%);
+  border-color:color-mix(in srgb,var(--teal) 45%,var(--line));
+  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+@media (max-width:700px){.card.flag{grid-template-columns:1fr}}
+.card.flag h4{font-size:24px}
+.card.flag p{max-width:58ch}
+.btn{display:inline-block;font:700 12px/1 var(--mono);letter-spacing:.12em;
+  padding:13px 22px;border:1px solid var(--teal);color:var(--teal);border-radius:2px;
+  white-space:nowrap;transition:background .2s,color .2s}
+.btn:hover{background:var(--teal);color:var(--ground)}
+
+/* doctrine */
+#how{background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);margin-top:44px}
+@media (max-width:800px){.docs{grid-template-columns:1fr}}
+.doc{background:var(--panel);padding:28px 24px}
+.doc h4{font:700 14px/1.5 var(--mono);color:var(--teal);margin-bottom:8px}
+.doc p{color:var(--muted);font-size:14.5px}
+
+footer{padding:46px 0 64px;color:var(--faint);font:12px/2 var(--mono);letter-spacing:.06em}
+footer .shell{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer a{color:var(--muted)}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
+
+<header>
+  <div class="wordmark">HARLIN LABS<small>HOBART · TASMANIA</small></div>
+  <nav><a href="#pipeline">PIPELINE</a><a href="#how">HOW WE BUILD</a>
+  <a href="nexus.html">NEXUS ↗</a></nav>
+</header>
+
+<section id="hero">
+  <canvas id="flow" aria-hidden="true"></canvas>
+  <div class="shell">
+    <p class="eyebrow">Product studio of HarLin Consulting</p>
+    <h1>Instruments for professions that <em>work in the field</em>.</h1>
+    <p class="heroSub">We build software the way field instruments are built: offline-first,
+    audit-grade, and designed to outlive their maker. Each product starts inside a real
+    professional workflow — ours — and ships only after it has survived a field season.</p>
+    <div class="legend">
+      <span><i class="dot d-prod"></i>In production</span>
+      <span><i class="dot d-pre"></i>Pre-production</span>
+      <span><i class="dot d-mvp"></i>Working prototype</span>
+      <span><i class="dot d-con"></i>Concept</span>
+    </div>
+  </div>
+</section>
+
+<section id="pipeline" class="shell" style="padding-top:20px">
+  <p class="eyebrow">The pipeline</p>
+  <h2>One spine, many instruments.</h2>
+  <p class="lede">Everything below shares engineering DNA: local-first data, one authenticated
+  sync relay, provenance on every value, and a written continuity promise.</p>
+
+  <div class="stage">
+    <h3>Flagship</h3>
+    <div class="cards">
+      <div class="card flag">
+        <div>
+          <p class="fam">Geoscience platform</p>
+          <h4>NEXUS</h4>
+          <p>The exploration data platform for junior miners — core logging, mobile field
+          capture, semantic search over decades of logs, and audit packs a Competent Person
+          can sign. In daily production use on live drill programs.</p>
+        </div>
+        <a class="btn" href="nexus.html">VISIT NEXUS ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <h3>NEXUS family</h3>
+    <div class="cards">
+      <div class="card"><span class="st dot d-prod"></span><p class="fam">Data engine</p>
+        <h4>GeoLedger</h4><p>Drill-core logging desktop. Eleven-stage workflow, self-healing
+        schema, photo pipeline, offline multi-user sync. The wedge.</p></div>
+      <div class="card"><span class="st dot d-prod"></span><p class="fam">Mobile capture</p>
+        <h4>HarLin Field</h4><p>Android capture at rig and outcrop — photos, structures,
+        intervals, offline maps — queued and synced to the engine.</p></div>
+      <div class="card"><span class="st dot d-pre"></span><p class="fam">Understanding</p>
+        <h4>Semantic Core</h4><p>Offline vector search across every logged word, with an
+        explanation for every match. The "understands it" in the tagline.</p></div>
+      <div class="card"><span class="st dot d-pre"></span><p class="fam">Deliverables</p>
+        <h4>NEXUS Handover</h4><p>Client handovers as self-contained interactive catalogues
+        that open in any browser, forever. No viewer licence, no expiry.</p></div>
+      <div class="card"><span class="st dot d-con"></span><p class="fam">Archives</p>
+        <h4>TrayClip</h4><p>Finds the core tray in any photo — this year's or 1994's —
+        squares it, reads depth blocks, names files to convention. Order from chaos.</p></div>
+      <div class="card"><span class="st dot d-con"></span><p class="fam">Reporting</p>
+        <h4>NEXUS Reporter</h4><p>Monthly and statutory exploration reporting assembled
+        straight from the data engine. The report writes its own appendices.</p></div>
+      <div class="card"><span class="st dot d-con"></span><p class="fam">Quality</p>
+        <h4>Assay &amp; QAQC</h4><p>Lab ingest with standards, blanks and duplicates
+        monitored continuously — failures flagged the day results land.</p></div>
+      <div class="card"><span class="st dot d-prod"></span><p class="fam">Vocabulary</p>
+        <h4>GeoLexis</h4><p>The geological language layer embedded in every module:
+        field-misspelling-aware, voice-ready. Clean logs at the point of entry.</p></div>
+      <div class="card"><span class="st dot d-con"></span><p class="fam">Training</p>
+        <h4>NEXUS Academy</h4><p>Short, field-real training for logging teams — because
+        adoption is a people problem before it is a software problem.</p></div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <h3>Instruments beyond geoscience</h3>
+    <div class="cards">
+      <div class="card"><span class="st dot d-mvp"></span><p class="fam">Professional language</p>
+        <h4>Discipline Lexicons</h4><p>The GeoLexis engine, retargeted: voice-to-text
+        vocabularies for veterinary, legal, medical and engineering field work.
+        One engine, many professions.</p></div>
+      <div class="card"><span class="st dot d-mvp"></span><p class="fam">Data integrity</p>
+        <h4>DriftGuard</h4><p>Watches synced folders for silent corruption, conflict
+        copies and placeholder files — and says so before your team loses a day.</p></div>
+      <div class="card"><span class="st dot d-con"></span><p class="fam">In residence</p>
+        <h4>Next instrument</h4><p>Labs runs a standing research bench. Concepts are
+        red-teamed before they're built, and killed cheerfully when they fail.
+        The pipeline stays honest.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="shell">
+    <p class="eyebrow">How we build</p>
+    <h2>Built by the person who has to use it on Monday.</h2>
+    <div class="docs">
+      <div class="doc"><h4>Field-proven, then sold</h4>
+        <p>Nothing ships until it has survived a real field season in our own hands.
+        Dogfooding isn't a phase here; it's the licence to sell.</p></div>
+      <div class="doc"><h4>Offline-first, always</h4>
+        <p>Our users work where the signal isn't. Every product is fully functional with
+        zero connectivity, and syncs when the world returns.</p></div>
+      <div class="doc"><h4>Continuity by design</h4>
+        <p>Open data formats, source-code escrow, perpetual fallback licences and a funded
+        support reserve — the endurance question, answered in writing.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <span>HarLin Labs — a division of HarLin Consulting Pty Ltd · est. 2020</span>
+    <span><a href="nexus.html">NEXUS</a> · <a href="mailto:labs@harlin.com.au">labs@harlin.com.au</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+var cv=document.getElementById("flow"), cx=cv.getContext("2d");
+var DPR=Math.min(devicePixelRatio||1,2), W,H;
+function rs(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);}
+addEventListener("resize",rs); rs();
+/* quiet ambient: particles drifting along a pipeline curve, condensing at nodes */
+var N=340, ps=[];
+for(var i=0;i<N;i++) ps.push({t:Math.random(), o:(Math.random()-.5)*46, s:.25+Math.random()*.9, ph:Math.random()*6.28});
+function pt(t){ /* gentle S-curve across hero */
+  var x=t*W;
+  var y=H*0.78 - Math.sin(t*Math.PI)*H*0.22 + Math.sin(t*9)*8;
+  return [x,y];
+}
+var teal = function(){ return getComputedStyle(document.documentElement).getPropertyValue("--teal").trim()||"#3BD1BC"; };
+function frame(ts){
+  cx.clearRect(0,0,W,H);
+  var col = teal();
+  /* the line itself, faint */
+  cx.strokeStyle = col; cx.globalAlpha = .12; cx.lineWidth = 1;
+  cx.beginPath();
+  for(var t=0;t<=1.001;t+=.02){ var p=pt(t); t===0?cx.moveTo(p[0],p[1]):cx.lineTo(p[0],p[1]); }
+  cx.stroke();
+  /* stage nodes */
+  cx.globalAlpha=.5;
+  [0.14,0.38,0.62,0.86].forEach(function(nt){
+    var p=pt(nt); cx.beginPath(); cx.arc(p[0],p[1],3,0,6.29); cx.fillStyle=col; cx.fill();
+  });
+  cx.globalAlpha=1;
+  for(var i=0;i<N;i++){
+    var p=ps[i];
+    if(!reduced) p.t += 0.0006*p.s;
+    if(p.t>1) p.t-=1;
+    var q=pt(p.t);
+    var wob=Math.sin(ts*0.0011+p.ph)*4;
+    cx.globalAlpha = .18+.5*Math.abs(Math.sin(p.t*Math.PI));
+    cx.fillStyle = col;
+    var sz = .9+p.s;
+    cx.fillRect(q[0]-sz/2, q[1]+p.o*(1-Math.abs(Math.sin(p.t*Math.PI))*.7)+wob, sz, sz);
+  }
+  cx.globalAlpha=1;
+  if(!reduced) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
+</script>

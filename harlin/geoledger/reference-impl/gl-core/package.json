@@ -1,0 +1,27 @@
+{
+  "name": "@geoledger/core",
+  "version": "0.6.0",
+  "description": "GeoLedger anti-drift kernel: single-source, zero-dependency pure modules for versioning, paths, formatting, data-truth cascade, intervals, validation, strict record I/O and governance ledger ids.",
+  "private": true,
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./version": "./src/version.js",
+    "./paths": "./src/paths.js",
+    "./format": "./src/format.js",
+    "./truth": "./src/truth.js",
+    "./intervals": "./src/intervals.js",
+    "./validation": "./src/validation.js",
+    "./records": "./src/records.js",
+    "./ledger": "./src/ledger.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "dependencies": {},
+  "license": "UNLICENSED"
+}

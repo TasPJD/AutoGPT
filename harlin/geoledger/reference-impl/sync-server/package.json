@@ -1,0 +1,25 @@
+{
+  "name": "@geoledger/sync-server",
+  "version": "0.1.0",
+  "description": "GeoLedger Sync Server (GL Relay): durable, ordered, authenticated changeset + photo transport replacing OneDrive/SharePoint folder sync. Zero runtime dependencies.",
+  "private": true,
+  "type": "module",
+  "main": "src/server.js",
+  "exports": {
+    ".": "./src/server.js",
+    "./storage": "./src/storage.js",
+    "./auth": "./src/auth.js"
+  },
+  "bin": {
+    "gl-sync-server": "bin/gl-sync-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node bin/gl-sync-server.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "dependencies": {},
+  "license": "UNLICENSED"
+}
