@@ -19,6 +19,8 @@ account(s) created by Paul (accounts/billing are Paul-actions, not agent-actions
   a vibe. Record the readings in the spike scorecard.
 - Deliverables: filled scorecard (nerves y/n, latency, interruptions, $/session, BYO-LLM
   ergonomics) → D-004 provider decision + LESSONS_LOG entries.
+- Spike kit is ready: `Phase0_Spike/SPIKE_SCRIPT.md` (persona config + the five scripted
+  questions + protocol) and `Phase0_Spike/SPIKE_SCORECARD.md` (fill-in template).
 - **Kill check K1:** no nerves on either + audio-fallback test also flat → stop/re-scope.
 
 ## Phase 1 — Walking skeleton (weeks 1-3 of build)
