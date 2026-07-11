@@ -1,0 +1,99 @@
+# Fix for OSB-020 — bound `harlin_fs_search`
+#
+# Target file (on Paul's machine, NOT in this repo):
+#   C:/AI/HarLin_Labs/Internal Infrastructure/HarLin_MCP.prj/server/harlin_mcp.py
+#
+# This is a drop-in replacement for the whole `harlin_fs_search` tool function.
+# It is presented as a full-function replacement (not a line diff) because the
+# server source is not tracked in this repository. Apply at desk, then restart
+# the server (scripts\restart_harlin_mcp.ps1) — the MCP's WRITE_DENY guard
+# correctly prevents editing its own server/ over the tunnel.
+#
+# ── BEFORE (the defect: capped only on hits → unbounded work on a rare term) ──
+#
+#   @mcp.tool()
+#   def harlin_fs_search(query: str, subpath: str = "", max_results: int = 40) -> str:
+#       ...
+#       base = _safe(subpath) if subpath else FS_ROOT
+#       if base is None:
+#           return "DENIED or out of scope."
+#       hits, q = [], query.lower()
+#       text_exts = {...}; doc_exts = {...}; exts = text_exts | doc_exts
+#       for f in base.rglob("*"):
+#           if len(hits) >= max_results:            # <-- ONLY bound: on hits, not work
+#               break
+#           sp = str(f).replace("\\", "/")
+#           if DENY.search(sp) or "/node_modules/" in sp or "/.next/" in sp:
+#               continue
+#           if not f.is_file() or (ext := f.suffix.lower()) not in exts:
+#               continue
+#           try:
+#               if q in f.name.lower():
+#                   hits.append(f"  {_rel(f)}")
+#               elif ext in text_exts and f.stat().st_size < 1_000_000 and \
+#                       q in f.read_text(encoding="utf-8", errors="ignore").lower():
+#                   hits.append(f"  {_rel(f)} (content)")
+#               elif ext in doc_exts and f.stat().st_size < 3_000_000 and \
+#                       q in extractors.extract(f, 200_000).lower():   # parse EVERY doc
+#                   hits.append(f"  {_rel(f)} (content)")
+#           except Exception:
+#               continue
+#       return "\n".join(hits) if hits else f"no matches for '{query}'."
+#
+# ── AFTER (bounded scan + wall-clock + doc-extract cap + fail-loud note) ──
+
+
+@mcp.tool()
+def harlin_fs_search(query: str, subpath: str = "", max_results: int = 40) -> str:
+    """Filename + content search. Defaults to C:/AI; pass subpath ('Clients/…', 'DATA/…',
+    'GIS/…', or an absolute C:/… path) to search another root. Searches text files by content
+    and matches documents (docx/xlsx/pptx/pdf) by name — use harlin_fs_read for a document's
+    contents. Bounded: a full-tree search stops after a scan/time budget and says so."""
+    if (d := _gate("harlin_fs_search")):
+        return d
+    base = _safe(subpath) if subpath else FS_ROOT
+    if base is None:
+        return "DENIED or out of scope."
+    import time as _time
+    # Bounds so an unscoped / rare-term search can never run unbounded and stall the server
+    # (OSB-020: the whole C:/AI tree is >=60k text/doc files; the old code content-read + parsed
+    # every one for a term that never filled max_results -> minutes -> tunnel 502 + starvation).
+    SCAN_CAP, TIME_BUDGET, DOC_EXTRACT_CAP = 20_000, 20.0, 150
+    hits, q = [], query.lower()
+    text_exts = {".md", ".txt", ".py", ".json", ".yaml", ".yml", ".ts", ".tsx", ".js", ".csv", ".html", ".htm"}
+    doc_exts = {".docx", ".xlsx", ".xlsm", ".xls", ".pptx", ".pdf"}
+    exts = text_exts | doc_exts
+    skip_dirs = ("/node_modules/", "/.next/", "/__pycache__/", "/.git/", "/state/backups/")
+    start, scanned, docs_extracted, truncated = _time.monotonic(), 0, 0, False
+    try:
+        for f in base.rglob("*"):
+            if len(hits) >= max_results:
+                break
+            if scanned >= SCAN_CAP or (_time.monotonic() - start) > TIME_BUDGET:
+                truncated = True
+                break
+            sp = str(f).replace("\\", "/")
+            if DENY.search(sp) or any(dd in sp for dd in skip_dirs):
+                continue
+            if not f.is_file() or (ext := f.suffix.lower()) not in exts:
+                continue
+            scanned += 1
+            try:
+                if q in f.name.lower():
+                    hits.append(f"  {_rel(f)}")
+                elif ext in text_exts and f.stat().st_size < 1_000_000 and \
+                        q in f.read_text(encoding="utf-8", errors="ignore").lower():
+                    hits.append(f"  {_rel(f)} (content)")
+                elif ext in doc_exts and docs_extracted < DOC_EXTRACT_CAP and \
+                        f.stat().st_size < 3_000_000 and q in extractors.extract(f, 200_000).lower():
+                    docs_extracted += 1
+                    hits.append(f"  {_rel(f)} (content)")
+            except Exception:
+                continue
+        out = "\n".join(hits) if hits else f"no matches for '{query}'."
+        if truncated:
+            out += (f"\n\n[bounded: scanned {scanned} files in {_time.monotonic()-start:.0f}s then stopped "
+                    f"(hits {len(hits)}, docs parsed {docs_extracted}) — narrow with a `subpath` for full coverage]")
+        return out
+    except Exception as e:
+        return f"search error: {e}"
