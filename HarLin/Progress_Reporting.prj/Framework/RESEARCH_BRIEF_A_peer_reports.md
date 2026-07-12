@@ -1,6 +1,7 @@
 # Research Brief A — Peer Progress Reports & Pipeline Valuation Methods
 
 **For:** Opus research session (light on quota; web research + contained synthesis)
+**✅ EXECUTED 2026-07-12** by in-session research subagent (decision D9) → `RESEARCH_FINDINGS_A_peer_reports.md`
 **Feeds:** Phase 3 framework design (`PLAN_v0.1.md` §4, §6)
 **Output:** `Framework/RESEARCH_FINDINGS_A_peer_reports.md`, cited throughout
 

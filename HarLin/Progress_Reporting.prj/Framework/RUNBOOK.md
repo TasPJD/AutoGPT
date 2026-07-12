@@ -23,13 +23,14 @@ Unknown fields stay `?` — never interpolated. This log IS the pillar 5–6 tim
 
 ## Monthly production steps
 
-1. **Gather** (mechanical): pull the month's Pulse summaries, every project CHANGELOG delta, catalog snapshot pair (start/end of month), dispatch cost ledger slice, git logs (Nexus, GeoLedger).
-2. **Count** (pillar 4): apply `LIFECYCLE_TAXONOMY.md` event tests; provenance-mark every count.
-3. **Measure** (pillars 2–3, 5–6): read from snapshot log + benchmark captures; no synthesis.
-4. **Value** (pillar 1): apply `VALUATION_FRAMEWORK.md`; record inputs beside outputs so the number is reproducible.
-5. **Write** from `REPORT_TEMPLATE.md`; every field either filled from a named source or marked **not captured** with its capture plan.
-6. **Gaps ledger + Decisions sought** last — they fall out of steps 1–5.
-7. File as `Reports/<YYYY-MM>.md`; log a CHANGELOG line; flag Paul.
+1. **Gather** (mechanical): pull the month's Pulse summaries, every project CHANGELOG delta, catalog snapshot pair (start/end of month), dispatch cost ledger slice, git logs (Nexus, GeoLedger), and `metrics/rollup-<YYYY-MM>.json` once instrumentation is live.
+2. **Calibrate** (template §2): mark each of last report's §10 milestones achieved / missed / dropped, one line of variance each.
+3. **Count** (pillar 4): apply `LIFECYCLE_TAXONOMY.md` event tests; provenance-mark every count; link every claimed output to its artifact.
+4. **Measure** (pillars 2–3, 5–6): read from snapshot log + metrics rollup; no synthesis.
+5. **Value** (pillar 1): apply `VALUATION_FRAMEWORK.md` — stage reviews (promotions/demotions land here and only here), GEV bridge, floor-only total, inputs beside outputs. Answer the standing demotion question per project.
+6. **Write** from `REPORT_TEMPLATE.md`; every field either filled from a named source or marked **not captured** with its capture plan. Set §10 next-month milestones — only what we intend to be measured against.
+7. **Validate**: run `scripts/validate_report.py` — a FAIL is not filed.
+8. File as `Reports/<YYYY-MM>.md`; log a CHANGELOG line; flag Paul.
 
 ## Standing checkpoints
 

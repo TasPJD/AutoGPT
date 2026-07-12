@@ -1,6 +1,7 @@
 # Research Brief B — Agent-System Benchmark Standards
 
 **For:** Opus research session (light on quota; web research + contained synthesis)
+**✅ EXECUTED 2026-07-12** by in-session research subagent (decision D9) → `RESEARCH_FINDINGS_B_benchmarks.md`
 **Feeds:** Phase 3 framework design (pillar 2) and the `Benchmarks/` instrumentation spec
 **Output:** `Benchmarks/RESEARCH_FINDINGS_B_benchmarks.md`, cited throughout
 

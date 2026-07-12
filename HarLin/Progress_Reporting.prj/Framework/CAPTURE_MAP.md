@@ -12,8 +12,8 @@ Legend: ✅ captured today · 🔶 partially captured · ❌ not captured (captu
 | 4 | Pipeline value bridge + floor-only total | 1 | 🔶 as row 3 | 🔶 | as row 3 |
 | 5 | Business value roll-up | 1 | 🔶 derived from 3+4 + capability premium | 🔶 | after rows 3–4 |
 | 6 | Benchmarks: 9-KPI set (success, intervention, selftest, latency, incidents, availability, cost, ceiling, storage) | 2 | ❌ instrumentation not built | ❌ | build order in `Benchmarks/INSTRUMENTATION_SPEC.md`; step 1 (outcome+intervention fields) first |
-| 7 | System health: uptime, incidents, drift | 3 | 🔶 Console /watch + steward selftest exist; no periodic log | 🔶 | add health snapshot line to `_snapshots.log` cadence |
-| 8 | Usage-ceiling watch (quota) | 3 | 🔶 Paul's manual readings (e.g. 2026-07-10: Fable 38%, all-Claude 32%) | 🔶 | log reading whenever observed; investigate automated capture |
+| 7 | System health: availability, incidents, drift | 3 | 🔶 Console /watch + steward selftest exist; no persisted log | 🔶 | `probes.jsonl` + `incidents.jsonl` per `Benchmarks/INSTRUMENTATION_SPEC.md` build order |
+| 8 | Usage-ceiling watch (quota) | 3 | 🔶 Paul's manual readings (e.g. 2026-07-10: Fable 38%, all-Claude 32%) | 🔶 | KPI 8 (ceiling proximity) from cost-ledger daily rollup per instrumentation spec; manual readings logged until then |
 | 9 | AWAITING CONFIRM backlog + resolution rate | 5 | `harlin_orient` counts → `Reports/_snapshots.log` | ✅ | backlog ✅ today; *resolution rate* needs opened/closed deltas — derive from consecutive snapshots |
 | 10 | Open questions / PAUL_ACTIONS counts | 5 | orient/Console | 🔶 | include in snapshot line each time visible |
 | 11 | Catalog entities / stubs / missing CP boxes | 6 | catalog + orient → `_snapshots.log` | ✅ | — |

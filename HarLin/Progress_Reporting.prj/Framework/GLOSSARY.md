@@ -6,9 +6,13 @@ Kept per decision D2: reports are written to be picked up by any of the family (
 |---|---|
 | **Pillar** | One of the 8 things we measure every month (value, benchmarks, health, velocity, backlog, record integrity, governance, cost) |
 | **Pipeline** | All the projects and tools HarLin is building, viewed as a portfolio with potential value |
-| **Stage (S0–S6)** | How far along a project is: idea → scaffolded → building → works → in daily use → sellable → earning. SX = shelved, SZ = closed |
+| **Stage (S0–S6)** | How far along a project is: idea → scoped → building → works for us → outside interest proven → sellable → earning. SX = shelved, SZ = closed |
 | **Touched vs Advanced** | Touched = someone worked on it this month (activity). Advanced = it moved up a stage (progress). Both reported so activity is never mistaken for progress |
 | **EV / expected value** | A project's potential value × the odds it gets there, given its stage. Not a promise — a portfolio-style estimate with a low/base/high band |
+| **GEV** | "Gated Expected Value" — our adopted valuation method: three what-if scenarios (worst/base/best), weighted, times the stage odds, never below the cost floor |
+| **Bridge** | The explanation of *why* the pipeline value moved this month — which projects passed or failed gates — shown instead of a bare total |
+| **Calibration** | Comparing what last month's report *said* would happen against what actually happened. Keeps the plan honest |
+| **Headline composite** | The one number pair at the top of every report (pipeline value change + cost per stage-advance), kept identical in definition across years so trends mean something |
 | **Cost floor** | A project is worth at least what it would cost to rebuild — its value never reports below that |
 | **Provenance: confirmed / inferred / gap** | How we know each claim: direct evidence / strong indirect evidence / we believe it happened but can't prove it (and we say so) |
 | **Capture** | Whether a number is being recorded automatically as it happens. "Not captured" = we don't have it yet and the report says how we'll get it |

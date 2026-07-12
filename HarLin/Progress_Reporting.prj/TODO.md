@@ -1,0 +1,13 @@
+# TODO - Progress_Reporting.prj
+
+- 🟠 AWAITING CONFIRM (2026-07-12) — framework v1.0 delivered under Paul's delegation (decisions D1-D12, gate waived per D8). Paul to review DECISIONS.md and the v1.0 framework set post-hoc.
+- 🔴 Doc-alignment pass (blocked: estate access) — read Business Plan + Vision/Design docs; fill AV anchors (VALUATION_FRAMEWORK §2); verify D1 (AUD); confirm key-project list.
+- 🔴 Backfill reports per Reports/BACKFILL_RUNSHEET.md: 2026-04 → 2026-05 → 2026-06 → 2026-07a → 2026-07b (with the before/after paradigm-shift section). Provenance-marked; validate_report.py gate.
+- 🔴 HarLin-side instrumentation build (Benchmarks/INSTRUMENTATION_SPEC.md build order): (1) outcome+intervention fields on dispatch close, (2) persist selftest, (3) probe timer, (4) storage snapshot + monthly rollup.
+- 🔴 Schedule snapshot_pillars.py (Task Scheduler, hourly is fine — idempotent per day) per D3.
+- 🔴 Copy staged files from repo (TasPJD/AutoGPT, HarLin/Progress_Reporting.prj/) into canonical path via catalog write-path; then update this TODO in place.
+- 🔴 Standing FYI checkpoint — flag Paul the first pipeline GEV number the moment anchors + first scoring pass exist.
+- 🔴 Month-two: activate pillars 7-8 per Framework/MONTH_TWO_PREP.md (incident log starts NOW so August has a full month).
+- 🔴 Successor countersign process for S4+ promotions (VALUATION_FRAMEWORK §5.4) — needs Paul to nominate the family countersigner.
+- 🔴 ConnectionPad box (cp_box_id: pending from scaffold).
+- ✅ 2026-07-12 — pillar set, decisions D1-D12, valuation method, taxonomy, template, capture map, runbook, glossary, scripts, research legs A+B.

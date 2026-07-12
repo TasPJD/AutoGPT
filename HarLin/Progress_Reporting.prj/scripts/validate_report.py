@@ -23,17 +23,21 @@ import re
 import sys
 from pathlib import Path
 
+# Section patterns for REPORT_TEMPLATE v1.0 (update alongside the template,
+# and log the change in FRAMEWORK_CHANGELOG.md)
 REQUIRED_SECTIONS = [
-    "Executive summary",
-    "Pillar dashboard",
-    "Portfolio movement",
-    "Value & pipeline",
-    "Key project sections",
-    "System health",
-    "Operator load",
-    "Record integrity",
-    "Gaps ledger",
-    "Decisions sought",
+    r"Headline & executive summary",
+    r"Calibration",
+    r"Pillar dashboard",
+    r"Portfolio movement",
+    r"Value & pipeline",
+    r"Key project sections",
+    r"System health",
+    r"Operator load",
+    r"Record integrity",
+    r"Next month",
+    r"Challenges & decisions sought",
+    r"Gaps ledger",
 ]
 
 CURRENCY = re.compile(r"(?:AUD|\$)\s?[\d,]+")
@@ -44,7 +48,7 @@ def validate(path: Path) -> list:
     problems = []
 
     for section in REQUIRED_SECTIONS:
-        if not re.search(rf"^#+\s*\d*\.?\s*{re.escape(section)}", text, re.M | re.I):
+        if not re.search(rf"^#+\s*\d*\.?\s*{section}", text, re.M | re.I):
             problems.append(f"V1 missing section: {section}")
 
     if not re.search(r"Provenance mix", text, re.I):

@@ -1,5 +1,7 @@
 # HarLin Monthly Progress Report System — Initial Plan v0.1
 
+> **Historical record.** This is the Phase-1 plan as written. Execution has moved past it: see `DECISIONS.md` (D1–D12, including the D8 gate waiver), `FRAMEWORK_CHANGELOG.md` (framework now v1.0), and the research findings files. The §8 open questions are resolved in the decision log.
+
 **Authored:** 2026-07-11, Claude Code planning session
 **Source of intent:** `Progress_Reporting.prj/FOUNDING_BRIEF.md` (Paul × Alfred, Console thread `th_af53114ccbd4`, 2026-07-10)
 **Status:** 🟠 DRAFT — for Paul's review. Nothing in this plan is a commitment to a number, a valuation, or a report until the framework gate (Phase 4) is passed.
