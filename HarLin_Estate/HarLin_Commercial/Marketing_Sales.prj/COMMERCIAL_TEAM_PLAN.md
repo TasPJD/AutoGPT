@@ -1,7 +1,7 @@
 # HarLin Commercial — Digital Team Master Plan
 
-**Version:** 1.0-draft · **Date:** 2026-07-11 · **Owner:** Paul Dale
-**Status:** AWAITING CONFIRM (structure scaffolded; nothing activated, nothing outbound)
+**Version:** 1.0 · **Date:** 2026-07-11 (confirmed 2026-07-12) · **Owner:** Paul Dale
+**Status:** CONFIRMED by Paul 2026-07-12 (roster, ADR-001, Phase 0 activation set). Phase 0 build under way. Outbound remains human-gated always.
 **Prepared by:** Claude (Fable 5 session, HarLin Commercial branch planning)
 
 ---

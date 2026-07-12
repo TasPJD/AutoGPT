@@ -5,12 +5,12 @@ pillar: labs
 parent: Commercial (agent team)
 level: 4
 status: active
-maturity: concept
+maturity: active
 canonical_path: C:\AI\HarLin_Labs\Internal Infrastructure\Commercial\Scribe.prj
 relocation_status: in_place
 cp_box_id: pending_crawler
 ai_context_doc_version: 1.0
-last_reviewed: 2026-07-11
+last_reviewed: 2026-07-12
 owner: Paul Dale
 code_location: none_yet (charter-run)
 activation_phase: 0

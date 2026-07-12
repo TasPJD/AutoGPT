@@ -5,14 +5,14 @@ pillar: labs
 parent: Commercial (agent team)
 level: 4
 status: active
-maturity: concept
+maturity: pre-prod
 canonical_path: C:\AI\HarLin_Labs\Internal Infrastructure\Commercial\CRM.prj
 relocation_status: in_place
 cp_box_id: pending_crawler
-ai_context_doc_version: 1.0
-last_reviewed: 2026-07-11
+ai_context_doc_version: 1.1
+last_reviewed: 2026-07-12
 owner: Paul Dale
-code_location: AEOS.prj runtime + AEOS data store (planned; not yet built)
+code_location: CRM.prj (schema_v1.sql, crm_migrate.py, crm_tools.py); DB in AEOS store per ADR-001
 activation_phase: 0
 ---
 
@@ -52,7 +52,9 @@ Quartermaster.prj (operations); build sessions run under AEOS.prj with
 this project as the spec.
 
 ## Status
-Concept. Build starts on Paul's confirm of ADR-001.
+Pre-prod. ADR-001 ACCEPTED 2026-07-12; v1 kit built and sandbox-tested
+(see PROGRESS.md). Remaining: apply migration to live AEOS store and
+register tools with the MCP Gateway (needs an on-machine AEOS session).
 
 ## Product angle (HP-40)
 A local-first, AI-native, MCP-served CRM is a credible NEXUS-adjacent

@@ -5,12 +5,12 @@ pillar: labs
 parent: Internal Infrastructure
 level: 3
 status: active
-maturity: concept
+maturity: active
 canonical_path: C:\AI\HarLin_Labs\Internal Infrastructure\Commercial
 relocation_status: in_place
 cp_box_id: pending_crawler
-ai_context_doc_version: 1.0
-last_reviewed: 2026-07-11
+ai_context_doc_version: 1.1
+last_reviewed: 2026-07-12
 owner: Paul Dale
 ---
 
@@ -54,5 +54,7 @@ infrastructure because agents are machinery, not customer-facing artefacts.
    scheduled Routines today, portable to a dedicated agent runtime later.
 
 ## Current Status
-Concept — scaffolded 2026-07-11, roster AWAITING CONFIRM. No agent active.
-Run crawler.py to register CP boxes.
+CONFIRMED by Paul 2026-07-12 (roster, ADR-001, Phase 0 activation set).
+Phase 0 agents active: Quartermaster, Cartographer, Herald, Scribe.
+CRM v1 kit built and sandbox-tested (CRM.prj — pre-prod; live migration
+pending an on-machine AEOS session). Run crawler.py to register CP boxes.

@@ -1,6 +1,6 @@
 # ADR-001 — CRM: Build on AEOS, not rent, not GitHub
 
-**Date:** 2026-07-11 · **Status:** PROPOSED (AWAITING CONFIRM — Paul)
+**Date:** 2026-07-11 · **Status:** ACCEPTED (Paul, 2026-07-12, via session confirm: "Go ahead and do it")
 **Deciders:** Paul Dale (final) · Prepared by Claude commercial-planning session
 
 ## Context
