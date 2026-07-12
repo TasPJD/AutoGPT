@@ -1,53 +1,60 @@
-# HarLin Progress Report — Template v0.2
+# HarLin Progress Report — Template v1.0
 
-**Status:** 🟠 DRAFT — structure per founding brief + PLAN v0.1 §5; field sources per `CAPTURE_MAP.md` (row numbers referenced below). Activates after the framework gate.
+**Status:** 🟢 ADOPTED — synthesis per Research Leg A Part 1 (YC skeleton + Sequoia calibration + AI-lab pre-registered thresholds + agency evidence links + CHAOSS health metrics + open-startup automation + Constellation headline). Field sources per `CAPTURE_MAP.md` (CM# row refs). Family-legible per D2 — jargon goes to `GLOSSARY.md`, judgment is confined to the two labeled judgment sections (§1 outlook line and §11).
 
 ---
 
 # HarLin Progress Report — {YYYY-MM}{a|b}
 
-**Period:** {start} → {end} · **Produced:** {date} · **Sources as of:** {catalog snapshot ids}
-**Provenance mix this report:** {n} confirmed / {n} inferred / {n} gap
+**Period:** {start} → {end} · **Produced:** {date} · **Framework:** {FRAMEWORK_CHANGELOG version}
+**Provenance mix:** {n} confirmed / {n} inferred / {n} gap
 
-## 1. Executive summary
-*≤5 bullets. The month in one screen: what moved, what it's worth, what needs Paul.*
+## 1. Headline & executive summary
+**Headline composite (stable metric, D12): ΔGEV {value} · cost per stage-advance {value}**
+*≤5 bullets: the month in one screen. One clearly-labeled outlook sentence maximum — everything else in this section is measured fact.*
 
-## 2. Pillar dashboard
+## 2. Calibration — what we said vs what happened
+*Sequoia discipline: last report's §10 milestones, each marked achieved / missed / dropped, with one line of variance explanation. First report: "no prior plan recorded — calibration begins next period."*
+
+## 3. Pillar dashboard
 
 | Pillar | This period | Δ vs prior | Trend | Provenance |
 |---|---|---|---|---|
-| 1 Business value / pipeline | {value or "not captured — CM#3-5"} | | | |
-| 2 Technical benchmarks | {or "not captured — CM#6"} | | | |
-| 3 System health | {CM#7-8} | | | |
-| 4 Portfolio velocity | {CM#2} | | | |
-| 5 Decision backlog | {CM#9-10} | | | |
-| 6 Record integrity | {CM#11} | | | |
-| 7 Governance *(from month 2)* | — | | | |
-| 8 Cost / ROI *(from month 2)* | — | | | |
+| 1 Business value / pipeline (CM#3-5) | | | | |
+| 2 Technical benchmarks (CM#6) | | | | |
+| 3 System health (CM#7-8) | | | | |
+| 4 Portfolio velocity (CM#2) | | | | |
+| 5 Decision backlog (CM#9-10) | | | | |
+| 6 Record integrity (CM#11) | | | | |
+| 7 Governance *(from month 2)* (CM#13) | | | | |
+| 8 Cost / ROI *(from month 2)* (CM#12) | | | | |
 
-## 3. Portfolio movement (pillar 4)
-*Counts per `LIFECYCLE_TAXONOMY.md` §2 — conceived / touched / scope-expanded / advanced / shelved / closed, each with evidence line. Touched ≠ Advanced: activity vs progress, report both.*
+## 4. Portfolio movement (pillar 4)
+*Counts per `LIFECYCLE_TAXONOMY.md` §2 — conceived / touched / scope-expanded / advanced / shelved / closed. Every claimed output links to its artifact (agency evidence-link rule). Touched ≠ Advanced: activity vs progress, report both.*
 
-## 4. Value & pipeline (pillar 1)
-*Per-project revenue-potential scores + deltas; pipeline balance-sheet value with confidence band and the inputs that produced it (reproducibility requirement). Blank with "not captured" until the valuation gate passes.*
+## 5. Value & pipeline (pillar 1)
+*GEV bridge (VALUATION_FRAMEWORK §7): last month → gates passed/failed → AV re-anchors → this month. Include floor-only conservative total, key-person disclosure, and the inputs table beside every number. Standing demotion question answered per project. "Not captured" until first scoring pass completes.*
 
-## 5. Key project sections
+## 6. Key project sections
 *One block each: Harness · OS · PAi · Alfred/AEOS · Nexus · GFM*
-- What moved (evidence-linked)
-- What it means for value (judgment, labeled as judgment)
-- Stage + stage transitions this period
+- What moved (evidence-linked) · stage + transitions this period
+- Burn vs scope this period (CM#12, from month 2)
+- Value note (measured GEV movement only — judgment stays in §11)
 
-## 6. System health & performance (pillars 2–3)
-*Benchmarks vs self-over-time; incidents; usage-ceiling readings this period.*
+## 7. System health & performance (pillars 2–3)
+*Nine-row KPI table from `metrics/rollup-{YYYY-MM}.json` (Benchmarks spec): value, Δ, 3-month trend. S1/S2 incident one-liners. Drift call-out: any KPI adverse 2+ months or newly-failing selftest item. Usage-ceiling readings.*
 
-## 7. Operator load (pillar 5)
-*Backlog level + resolution rate from `_snapshots.log`. The question this section answers: is the executive-function prosthetic working?*
+## 8. Operator load (pillar 5)
+*Backlog level + resolution rate from `Reports/_snapshots.log`. The question this section answers: is the executive-function prosthetic working?*
 
-## 8. Record integrity (pillar 6)
-*Entities / stubs / missing-CP trend from `_snapshots.log`.*
+## 9. Record integrity (pillar 6)
+*Entities / stubs / missing-CP trend from `_snapshots.log`. CHAOSS-style: % of period's work items with SoR entries.*
 
-## 9. Gaps ledger
-*Every "not captured" field touched by this report: field, why missing, capture plan, ETA.*
+## 10. Next month — planned milestones
+*3–5 per active key project, each with its expected evidence. This section IS next report's §2 input — write only what we intend to be measured against.*
 
-## 10. Decisions sought
-*≤5 items needing Paul's word, each with a recommendation.*
+## 11. Challenges & decisions sought *(labeled judgment section)*
+*Each challenge paired with a mitigation (YC rule). ≤5 decisions needing Paul's word, each with a recommendation.*
+
+## 12. Gaps ledger
+*Every "not captured" field this report touched: field, why missing, capture plan, ETA. Provenance-mix trend vs prior reports.*

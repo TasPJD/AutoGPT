@@ -2,6 +2,14 @@
 
 The framework itself is versioned: any change to definitions, ladders, weights, or template fields is logged here, because a metric whose definition silently changes is worse than no metric. Reports name the framework version they were produced under.
 
+## v1.0 — 2026-07-12 (later same day)
+- Research Legs A + B completed (subagent research, fully cited findings filed).
+- VALUATION_FRAMEWORK v1.0: GEV-CF adopted (D10) — calibrated ladder, platform rule, governance controls.
+- LIFECYCLE_TAXONOMY v1.0: S4 redefined to require external demand signal (D11).
+- REPORT_TEMPLATE v1.0: calibration block (§2), headline composite (D12), next-month milestones (§10), judgment fenced to §11.
+- Benchmarks INSTRUMENTATION_SPEC v1.0: nine-KPI set + JSONL ledgers + build order.
+- CAPTURE_MAP rows 3–6 upgraded; rows 16–17 added.
+
 ## v0.2 — 2026-07-12
 - Decision log D1–D9 established under Paul's delegation; gate waived by D8.
 - Lifecycle taxonomy v0.1 (stages S0–S6/SX/SZ, pillar-4 event tests).

@@ -8,10 +8,10 @@ Legend: ✅ captured today · 🔶 partially captured · ❌ not captured (captu
 |---|---|---|---|---|---|
 | 1 | Pillar dashboard deltas | all | this map's rows | ✅ | — |
 | 2 | Projects touched / conceived / expanded / advanced / shelved / closed | 4 | project CHANGELOGs (mandatory since 2026-04-12) + catalog + Pulse | ✅ | backfill months rely on CHANGELOG density; sparse months marked inferred/gap |
-| 3 | Per-project revenue-potential score + delta | 1 | ❌ none — framework first | ❌ | `VALUATION_FRAMEWORK.md` defines inputs; first scoring pass after gate |
-| 4 | Pipeline balance-sheet value | 1 | ❌ none — framework first | ❌ | as above; early-appraisal FYI on first number |
-| 5 | Business value roll-up | 1 | ❌ | ❌ | derived from 3+4 once they exist |
-| 6 | Benchmarks: speed / accuracy / error rate / storage | 2 | ❌ no instrumentation yet | ❌ | Research Leg B → KPI set → instrumentation per Benchmarks spec |
+| 3 | Per-project GEV + delta | 1 | 🔶 method adopted (VALUATION_FRAMEWORK v1.0); AV anchors pending Business Plan read | 🔶 | fill anchors → first scoring pass → early-appraisal FYI |
+| 4 | Pipeline value bridge + floor-only total | 1 | 🔶 as row 3 | 🔶 | as row 3 |
+| 5 | Business value roll-up | 1 | 🔶 derived from 3+4 + capability premium | 🔶 | after rows 3–4 |
+| 6 | Benchmarks: 9-KPI set (success, intervention, selftest, latency, incidents, availability, cost, ceiling, storage) | 2 | ❌ instrumentation not built | ❌ | build order in `Benchmarks/INSTRUMENTATION_SPEC.md`; step 1 (outcome+intervention fields) first |
 | 7 | System health: uptime, incidents, drift | 3 | 🔶 Console /watch + steward selftest exist; no periodic log | 🔶 | add health snapshot line to `_snapshots.log` cadence |
 | 8 | Usage-ceiling watch (quota) | 3 | 🔶 Paul's manual readings (e.g. 2026-07-10: Fable 38%, all-Claude 32%) | 🔶 | log reading whenever observed; investigate automated capture |
 | 9 | AWAITING CONFIRM backlog + resolution rate | 5 | `harlin_orient` counts → `Reports/_snapshots.log` | ✅ | backlog ✅ today; *resolution rate* needs opened/closed deltas — derive from consecutive snapshots |
@@ -21,6 +21,8 @@ Legend: ✅ captured today · 🔶 partially captured · ❌ not captured (captu
 | 13 | Governance / sensitivity-gate incidents | 7 (month 2) | ❌ no incident log | ❌ | define incident record format in month-two prep |
 | 14 | Session narrative (key project sections) | — | Pulse SESSION_INDEX + summaries (auto since June) | ✅ | pre-June backfill months: CHANGELOGs only, marked accordingly |
 | 15 | Git-based activity (Nexus, GeoLedger) | 4 | repo git history | ✅ | — |
+| 16 | Calibration block (planned vs achieved milestones) | 4/7 | prior report §10 | ✅ from second report | first report records "calibration begins next period" |
+| 17 | Valuation input records (stage evidence, AV anchors, gate history, kill criteria) | 1 | VALUATION_FRAMEWORK §6 records | ❌ until first scoring pass | created during first scoring pass; AV anchors from Business Plan ⏳ |
 
 ## Backfill provenance expectations
 
