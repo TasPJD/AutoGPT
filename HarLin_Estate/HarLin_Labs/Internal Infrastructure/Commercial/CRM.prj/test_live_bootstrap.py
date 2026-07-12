@@ -26,7 +26,9 @@ import crm_migrate  # noqa: E402
 LIVE_DB = Path(r"C:\AI\HarLin_Labs\Internal Infrastructure\AEOS.prj\runtime\business\aeos_events.db")
 
 EXPECTED_TABLES = {"crm_companies", "crm_contacts", "crm_interactions",
-                   "crm_opportunities", "crm_campaigns", "crm_campaign_touches", "crm_meta"}
+                   "crm_opportunities", "crm_campaigns", "crm_campaign_touches", "crm_meta",
+                   # v2 (2026-07-12 gap-analysis build)
+                   "crm_audit", "crm_stage_history", "crm_pipeline_snapshots"}
 
 
 def test_bootstrap_live_crm_store(monkeypatch):
@@ -39,6 +41,8 @@ def test_bootstrap_live_crm_store(monkeypatch):
         names = {r[0] for r in cx.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         assert EXPECTED_TABLES <= names, f"live store missing tables: {EXPECTED_TABLES - names}"
         ver = cx.execute("SELECT value FROM crm_meta WHERE key='schema_version'").fetchone()
-        assert ver and ver[0] == "1"
+        assert ver and ver[0] == crm_migrate.SCHEMA_VERSION == "2"
+        cols = {r[1] for r in cx.execute("PRAGMA table_info(crm_contacts)")}
+        assert "consent_evidence" in cols
     finally:
         cx.close()

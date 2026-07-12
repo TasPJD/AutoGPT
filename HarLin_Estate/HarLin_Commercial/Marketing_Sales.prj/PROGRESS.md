@@ -1,5 +1,26 @@
 # PROGRESS — Marketing_Sales.prj
 
+## 2026-07-12 (evening) — Gap analysis vs peer systems + build-out (Claude session)
+- GAP_ANALYSIS.md authored: benchmarked against Salesforce/HubSpot/Dynamics
+  capability, RevOps practice, MEDDICC-class methodology, SOC2-flavoured ops.
+  22 gaps identified: 14 BUILT this session, 9 allocated to TODO with
+  owner+phase, 2 rejected with reasons (some items split disposition).
+- CRM v2 BUILT & TESTED: crm_audit (append-only audit trail, refusals
+  included), crm_stage_history + conversion view, crm_pipeline_snapshots +
+  snapshot tool, consent_evidence column, email dedup unique index,
+  overdue-actions view, closed-deal reopen guard. Migration runner now
+  multi-version (schema_v1+v2). Test suite grown 6→12, all green.
+- Playbooks layer BUILT: SALES_PLAYBOOK.md (stage entry/exit criteria,
+  MERIT qualification, cadence & rest rules, merge protocol, lost-reason
+  taxonomy), ICP_RUBRIC_v0.md, METRICS_DICTIONARY.md (19 exact definitions),
+  OPERATING_CADENCE.md (weekly/monthly/quarterly rituals + incident runbook).
+- Governance layer BUILT: OPERATIONS_MANUAL.md (HP-39 succession-executable),
+  RISKS.md (10-risk register, all mitigated or allocated),
+  SESSION_PROTOCOL.md + LEARNINGS.md seeds for the four active agents.
+- Pipeline dashboard BUILT: generate_dashboard.py (Quartermaster tool) →
+  Dashboards\pipeline_dashboard.html, registered in Alfred → Workflows →
+  Commercial (live-marked, generation-stamped).
+
 ## 2026-07-12 — CONFIRMED & Phase 0 build (Claude session)
 - Paul CONFIRMED: roster (10 agents), ADR-001 (CRM on AEOS), Phase 0
   activation set — "Go ahead and do it… one shot build."

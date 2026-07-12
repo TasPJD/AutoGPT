@@ -91,6 +91,10 @@ _BOARDS: list[dict] = [
      "kind": "html", "path": _COMMERCIAL / "Commercial_Team_Flowchart.html", "live": False,
      "note": "The ten-agent marketing & sales engine: intelligence → demand gen → gated sales → "
              "post-sale, with the CRM spine and Paul's confirm gates. v1.0 (2026-07-12)."},
+    {"id": "commercial-pipeline-dash", "title": "Commercial Pipeline Dashboard", "group": "Commercial",
+     "kind": "html", "path": _COMMERCIAL.parent / "Dashboards" / "pipeline_dashboard.html", "live": True,
+     "note": "Pipeline by stream/stage, overdue actions, snapshot trend — GENERATED from the CRM "
+             "store by Quartermaster's generate_dashboard.py; regenerated at the weekly standup."},
 
     # ---- Comparison & status ----
     {"id": "vs-jarvis", "title": "HarLin vs Jarvis", "group": "Comparison & status",

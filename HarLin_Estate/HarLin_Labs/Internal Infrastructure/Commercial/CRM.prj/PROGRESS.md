@@ -1,5 +1,21 @@
 # PROGRESS — CRM.prj
 
+## 2026-07-12 (evening) — v2: parity with peer-CRM governance (gap-analysis build)
+- schema_v2.sql: crm_audit (append-only, refusals audited too),
+  crm_stage_history, crm_pipeline_snapshots, email dedup unique index
+  (case-insensitive), v_crm_overdue_actions, v_crm_stage_conversion.
+- crm_migrate.py: multi-version (applies schema_v*.sql in order), guarded
+  ALTER for crm_contacts.consent_evidence, SCHEMA_VERSION now derived.
+- crm_tools.py: audit writes on every mutation; agent attribution param;
+  stage transitions recorded with actor; won/lost reopen requires explicit
+  reopen=True; new crm_snapshot_pipeline tool; overdue_only read flag.
+- generate_dashboard.py + test_dashboard.py: standalone-HTML pipeline
+  dashboard (house pattern) generated from the store; registered in
+  Alfred → Workflows → Commercial.
+- Tests 6→12 (stage history, reopen guard, audit trail incl. refusal
+  audit, snapshot+overdue, dedup guard, consent evidence). Live store
+  migrated v1→v2 (additive; auto-backup taken).
+
 ## 2026-07-12 — v1 build kit complete & tested (Claude session, Paul's confirm)
 - ADR-001 ACCEPTED by Paul (session confirm 2026-07-12).
 - `schema_v1.sql` — full DDL: 7 tables (companies, contacts, interactions,

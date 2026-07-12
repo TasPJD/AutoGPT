@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commercial Pipeline Dashboard</title><style>
+:root { --bg:#f7f6f2; --panel:#fff; --ink:#1c2430; --muted:#5c6672; --line:#c9cdd4;
+        --accent:#1f6f54; --warn:#b3541e; --crm:#2b4a7a; --chip:#eceae4; }
+@media (prefers-color-scheme: dark) {
+ :root { --bg:#14181e; --panel:#1d232c; --ink:#e8e6e1; --muted:#9aa3ad; --line:#3a424d;
+         --accent:#4dab87; --warn:#d97b3f; --crm:#6f94c9; --chip:#262d37; } }
+*{box-sizing:border-box;margin:0} body{background:var(--bg);color:var(--ink);
+font:15px/1.5 "Segoe UI",system-ui,sans-serif;padding:26px 22px 44px}
+h1{font-size:1.3rem} .sub{color:var(--muted);font-size:.85rem;margin:2px 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;max-width:1080px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h2{font-size:.75rem;text-transform:uppercase;letter-spacing:.11em;color:var(--muted);margin-bottom:8px}
+.big{font-size:1.7rem;font-weight:600} .unit{color:var(--muted);font-size:.8rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{color:var(--muted);text-align:left;font-weight:500;padding:4px 8px 4px 0}
+td{padding:4px 8px 4px 0;border-top:1px solid var(--line)}
+.warn{color:var(--warn);font-weight:600} .ok{color:var(--accent)}
+.wide{grid-column:1/-1} footer{color:var(--muted);font-size:.72rem;margin-top:20px;max-width:1080px}
+</style></head><body>
+<h1>Commercial Pipeline Dashboard</h1>
+<div class="sub">GENERATED 2026-07-12 13:36Z by generate_dashboard.py (Quartermaster) — regenerate to refresh; never hand-edit.</div>
+<div class="grid">
+ <div class="card"><h2>Weighted pipeline</h2><div class="big">$0</div><div class="unit">AUD, open stages, probability-weighted</div></div>
+ <div class="card"><h2>Open opportunities</h2><div class="big">0</div><div class="unit">won to date: 0 ($0)</div></div>
+ <div class="card"><h2>Account universe</h2><div class="big">0</div><div class="unit">0 ICP-graded</div></div>
+ <div class="card"><h2>Contacts</h2><div class="big">0</div><div class="unit">0 with a lawful consent basis</div></div>
+ <div class="card wide"><h2>Pipeline by stream &amp; stage</h2><p class='unit'>none</p></div>
+ <div class="card wide"><h2>Overdue actions <span class=ok>(0)</span></h2><p class='unit'>none</p></div>
+ <div class="card wide"><h2>Next actions (top 12)</h2><p class='unit'>none</p></div>
+ <div class="card wide"><h2>Weighted-pipeline snapshots (recent)</h2><p class='unit'>none</p></div>
+</div>
+<footer>Source of truth: the CRM store (ADR-001). Views: v_crm_pipeline / v_crm_next_actions / v_crm_overdue_actions / crm_pipeline_snapshots.
+Empty tables are expected until Phase 0 population begins.</footer>
+</body></html>

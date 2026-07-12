@@ -90,4 +90,73 @@ def test_pipeline_and_export(db, tmp_path):
     assert rep and rep[0]["weighted_aud"] == 10000.0
     assert t.crm_next_actions(db, owner="paul")
     out = t.crm_export(db, str(tmp_path / "exp"))
-    assert out["tables"] == 7
+    assert out["tables"] == 10  # v1's 7 + v2's audit/stage_history/snapshots
+
+
+# ---------------------------------------------------------------- v2 features
+
+def test_stage_history_recorded(db):
+    _seed(db)
+    t.crm_upsert_opportunity(db, "co_barton_gold", "nexus", "Pilot",
+                             stage="identified", agent="foreman")
+    t.crm_upsert_opportunity(db, "co_barton_gold", "nexus", "Pilot",
+                             stage="qualified", agent="assayer")
+    hist = db.execute("SELECT from_stage, to_stage, changed_by FROM crm_stage_history "
+                      "ORDER BY changed_at").fetchall()
+    assert [(h["from_stage"], h["to_stage"]) for h in hist] == \
+           [(None, "identified"), ("identified", "qualified")]
+    assert hist[1]["changed_by"] == "assayer"
+
+
+def test_reopen_guard(db):
+    _seed(db)
+    t.crm_upsert_opportunity(db, "co_barton_gold", "nexus", "Pilot",
+                             stage="lost", lost_reason="budget cut")
+    with pytest.raises(ValueError):
+        t.crm_upsert_opportunity(db, "co_barton_gold", "nexus", "Pilot", stage="qualified")
+    r = t.crm_upsert_opportunity(db, "co_barton_gold", "nexus", "Pilot",
+                                 stage="qualified", reopen=True, agent="paul")
+    assert r["action"] == "updated"
+
+
+def test_audit_trail_written(db):
+    _seed(db)
+    rows = db.execute("SELECT entity, action FROM crm_audit").fetchall()
+    assert ("company", "created") in [(r["entity"], r["action"]) for r in rows]
+    # refusals are audited too
+    with pytest.raises(t.ConsentError):
+        t.crm_log_interaction(db, "outbound", "email", "envoy", "hi",
+                              contact_id="ct_jane_doe_barton_gold")
+    assert db.execute("SELECT 1 FROM crm_audit WHERE action='refused_unapproved'").fetchone()
+
+
+def test_snapshot_and_overdue(db):
+    _seed(db)
+    t.crm_upsert_opportunity(db, "co_barton_gold", "nexus", "Pilot",
+                             stage="qualified", value_aud=10000, probability=0.5,
+                             next_action="follow up", next_action_owner="paul",
+                             next_action_due="2020-01-01")
+    snap = t.crm_snapshot_pipeline(db)
+    assert snap["rows"] == 1
+    assert db.execute("SELECT COUNT(*) c FROM crm_pipeline_snapshots").fetchone()["c"] == 1
+    overdue = t.crm_next_actions(db, overdue_only=True)
+    assert overdue and overdue[0]["next_action_due"] == "2020-01-01"
+
+
+def test_email_dedup_guard(db):
+    _seed(db)
+    t.crm_upsert_contact(db, name="Jane Doe", company_id="co_barton_gold",
+                         id="ct_jane_doe_barton_gold", email="jane@barton.com")
+    with pytest.raises(sqlite3.IntegrityError):
+        t.crm_upsert_contact(db, name="J. Doe", company_id="co_barton_gold",
+                             email="JANE@barton.com", consent_basis="express")
+
+
+def test_consent_evidence_column(db):
+    _seed(db)
+    t.crm_upsert_contact(db, name="Jane Doe", company_id="co_barton_gold",
+                         id="ct_jane_doe_barton_gold",
+                         consent_evidence="met at Diggers 2026, exchanged cards")
+    row = db.execute("SELECT consent_evidence FROM crm_contacts "
+                     "WHERE id='ct_jane_doe_barton_gold'").fetchone()
+    assert "Diggers" in row["consent_evidence"]

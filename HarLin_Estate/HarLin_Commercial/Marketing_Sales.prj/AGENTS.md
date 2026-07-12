@@ -53,6 +53,13 @@ roster names, ADR-001, activation order. Nothing outbound has occurred.
 
 ## Key Files & Entry Points
 - `COMMERCIAL_TEAM_PLAN.md` — the master plan (start here)
-- `ADR-001_CRM_Decision.md` — CRM decision record
-- `BRAND_VOICE.md` — voice, tone, empathy standards (seed)
-- `Playbooks\`, `Campaigns\`, `Collateral\` — populated as work happens
+- `OPERATIONS_MANUAL.md` — how to run/inherit the engine (HP-39)
+- `ADR-001_CRM_Decision.md` — CRM decision record (ACCEPTED)
+- `GAP_ANALYSIS.md` — vs peer-grade systems; the gaps ledger
+- `BRAND_VOICE.md` — voice, tone, empathy standards (binding)
+- `RISKS.md` — risk register (quarterly review)
+- `Playbooks\` — SALES_PLAYBOOK, ICP_RUBRIC_v0, METRICS_DICTIONARY,
+  OPERATING_CADENCE
+- `Dashboards\pipeline_dashboard.html` — generated; also in Alfred → Workflows
+- `Flowcharts\Commercial_Team_Flowchart.html` — in Alfred → Workflows
+- `Campaigns\`, `Collateral\` — populated as work happens

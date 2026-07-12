@@ -52,6 +52,8 @@ infrastructure because agents are machinery, not customer-facing artefacts.
    including absolute `do_not_contact` and consent rules.
 5. Charters are runtime-agnostic: runnable as Claude Code sessions or
    scheduled Routines today, portable to a dedicated agent runtime later.
+6. Every session follows `SESSION_PROTOCOL.md` (this dir): open from the
+   charter + queue, record as you work, close with next-actions + LEARNINGS.
 
 ## Current Status
 CONFIRMED by Paul 2026-07-12 (roster, ADR-001, Phase 0 activation set).

@@ -16,6 +16,24 @@
       (catalog.py ingest — 13 slugs verified in catalog.sqlite)
 - [ ] Wire crm_tools.register() into the MCP Gateway (next AEOS on-machine
       session — not attempted over the tunnel; would restart the live gateway)
+
+## Gap-analysis allocations (2026-07-12 — see GAP_ANALYSIS.md for context)
+- [ ] (0 → Paul/AEOS) Gateway wiring — the E1 standing item above
+- [ ] (1 → Quartermaster) Scheduled weekly crm_export + snapshot via Windows
+      Task Scheduler (E2; needs on-machine shell)
+- [ ] (1 → Quartermaster+AEOS) ContextGraph mirror job: crm companies/contacts
+      ↔ COMPANY/PERSON nodes (E3; touches live brain — on-machine session)
+- [ ] (1 → Quartermaster) Dashboard + KPI feed into PAi morning brief once
+      gateway tools are live (B3)
+- [ ] (1 → Herald+Scribe) Campaign-brief & case-study templates with the
+      first real campaign (C4)
+- [ ] (2 → Envoy/Herald, HARD GATE) Unsubscribe/preference infrastructure
+      BEFORE any outbound email sequence (E5 — Spam Act mechanics)
+- [ ] (2 → Quartermaster) Forecast categories column (A9); fuzzy company
+      dedup in hygiene runs (A4); attribution model doc (C5)
+- [ ] (2 → Quartermaster) Xero reconciliation of won deals vs invoices (E4)
+- [ ] (3 → gateway) Per-agent authenticated identity if unattended agents
+      arrive (E7)
 - [ ] ContextGraph mirror job (companies/contacts ↔ COMPANY/PERSON nodes)
 - [ ] Cartographer #1: NEXUS market map v1 (fold in existing Market
       Intelligence material; ≥200 companies mapped and streamed)
