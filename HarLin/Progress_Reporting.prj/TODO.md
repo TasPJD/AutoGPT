@@ -1,5 +1,8 @@
 # TODO - Progress_Reporting.prj
 
+- 🟠 AWAITING CONFIRM (2026-07-12, class C2 per proposed protocol, 7-day window) — Commercial-readiness builds: GAP_REGISTER filed (9 gaps mapped against Millionaire/Elevation coverage); DECISION_THROUGHPUT_PROTOCOL.md drafted as StandingRules candidate (C1-C4 classes, defaults, 239-backlog triage runsheet); **Foreman-Remote nightly Routine ACTIVATED** (daily 13:00 UTC cloud session working remote-feasible WPs 14/13/15/06/07 into a rolling draft PR — pausable anytime from Routines, or ask any session to disable trigger "Foreman-Remote: nightly HarLin work order").
+- 🔴 Backlog triage sweep (protocol §3) — needs an estate-write session; predicted to collapse 239 AWAITING CONFIRM to low-tens of true C1s.
+
 - 🟠 AWAITING CONFIRM (2026-07-12) — framework v1.0 delivered under Paul's delegation (decisions D1-D12, gate waived per D8). Paul to review DECISIONS.md and the v1.0 framework set post-hoc.
 - ✅ 2026-07-12 — Doc-alignment pass done (estate came back): AV anchor register filled from Elevation VISION + Millionaire PLAN_v0.4 + PRODUCT_PIPELINE; D1 (AUD) verified; taxonomy mapped to HRL/pipeline ladders (D14); Commercial streams report block added (D13).
 - ✅ 2026-07-12 — Backfill reports 2026-04 / 2026-05 / 2026-06 / 2026-07a produced from estate records, all validator-PASS; provenance gradient 68%→84% confirmed as predicted. Residual gaps (Pulse pre-June, Alfred/NEXUS early CHANGELOG depth, git logs) listed in each report's §12 for the 07b touch-up.
