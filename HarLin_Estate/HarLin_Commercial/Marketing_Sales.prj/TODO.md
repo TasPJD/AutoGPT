@@ -7,12 +7,15 @@
 
 ## Phase 0 (in progress)
 - [x] Build CRM v1 kit: schema + migration + gateway tools + consent
-      enforcement (sandbox-tested; see CRM.prj\PROGRESS.md)
-- [ ] Apply CRM migration to live AEOS store (--seed-from-clients) and
-      wire crm_tools.register() into the MCP Gateway  ← needs on-machine session
-- [ ] Hook Commercial_Team_Flowchart.html into Alfred's Flowcharts menu
-      ← blocked on tunnel, auto-retrying
-- [ ] Run crawler.py → register new .prj boxes in Catalog/Connection Pad
+      enforcement (sandbox + on-machine tested; see CRM.prj\PROGRESS.md)
+- [x] Create live CRM store (2026-07-12: aeos_events.db bootstrapped in
+      AEOS runtime\business — 7 tables, 3 views, schema v1)
+- [x] Hook Commercial_Team_Flowchart.html into Alfred's Workflows menu
+      (console/boards.py `Commercial` group; 25 console tests green)
+- [x] Register Commercial descriptors in the System of Record
+      (catalog.py ingest — 13 slugs verified in catalog.sqlite)
+- [ ] Wire crm_tools.register() into the MCP Gateway (next AEOS on-machine
+      session — not attempted over the tunnel; would restart the live gateway)
 - [ ] ContextGraph mirror job (companies/contacts ↔ COMPANY/PERSON nodes)
 - [ ] Cartographer #1: NEXUS market map v1 (fold in existing Market
       Intelligence material; ≥200 companies mapped and streamed)

@@ -89,7 +89,7 @@ def main() -> int:
         return 2
 
     creating = not db_path.exists()
-    print(f"CRM migrate v{SCHEMA_VERSION} → {db_path}  ({'NEW DB' if creating else 'existing DB'})")
+    print(f"CRM migrate v{SCHEMA_VERSION} -> {db_path}  ({'NEW DB' if creating else 'existing DB'})")
 
     if args.dry_run:
         print("  DRY RUN: would " + ("create DB, " if creating else "backup DB, ")
@@ -99,7 +99,7 @@ def main() -> int:
         return 0
 
     if not creating and not args.no_backup:
-        print(f"  backup → {backup(db_path)}")
+        print(f"  backup -> {backup(db_path)}")
 
     cx = sqlite3.connect(db_path)
     try:

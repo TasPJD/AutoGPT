@@ -16,6 +16,23 @@
   REFUSED ✅; consent_basis='none' outbound REFUSED ✅; do_not_contact
   send REFUSED ✅; agent clearing do_not_contact REFUSED ✅; lost-without-
   reason REFUSED ✅; won→company promoted to client ✅; 7-table export ✅.
-- PENDING (needs HarLin tunnel / AEOS session): run crm_migrate.py against
-  the live AEOS store (locate aeos_events.db; use --seed-from-clients),
-  wire register() into the MCP Gateway, set CRM_DB env for the gateway.
+## 2026-07-12 (later) — LIVE STORE CREATED ✅
+- On-machine validation: `test_crm_kit.py` 6 passed (temp DB, full refusal
+  matrix re-verified on Windows/cp1252; one encoding fix to crm_migrate
+  prints: → replaced with -> for console safety).
+- **Live store bootstrapped via `test_live_bootstrap.py` (pytest lane,
+  Paul's chat approval 2026-07-12):**
+  `C:\AI\HarLin_Labs\Internal Infrastructure\AEOS.prj\runtime\business\aeos_events.db`
+  — NEW file (no prior ClientLedger DB existed anywhere; this store is the
+  first inhabitant of the Layer-5 location the AEOS architecture assigns).
+  7 tables + 3 views present, crm_meta.schema_version=1. No seed run:
+  no legacy `clients` table exists to seed from.
+- SoR: all 13 Commercial descriptors ingested into catalog.sqlite
+  (`..\test_registration_housekeeping.py`, 1 passed).
+
+## REMAINING — one integration step (next AEOS on-machine session)
+- Wire tools into the MCP Gateway: import crm_tools, call
+  register(gateway, db_path=r"C:\AI\HarLin_Labs\Internal Infrastructure\AEOS.prj\runtime\business\aeos_events.db")
+  and set CRM_DB for the gateway process. Deliberately NOT attempted over
+  the tunnel: editing/restarting the live gateway would sever the very MCP
+  session doing the work (and Paul's phone bridge). Zero risk taken there.

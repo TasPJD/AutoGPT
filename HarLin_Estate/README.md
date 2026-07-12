@@ -10,6 +10,12 @@ Mapping:
 |---|---|
 | `HarLin_Commercial/Marketing_Sales.prj/` | `C:\AI\HarLin_Commercial\Marketing_Sales.prj\` |
 | `HarLin_Labs/Internal Infrastructure/Commercial/` | `C:\AI\HarLin_Labs\Internal Infrastructure\Commercial\` |
+| `HarLin_Labs/Internal Infrastructure/Alfred.prj/console/` | `C:\AI\...\Alfred.prj\console\` (boards.py + test_boards.py only — Workflows-menu hook, 2026-07-12) |
+
+Estate-side changes NOT mirrored as files here (recorded in PROGRESS docs):
+Alfred.prj CHANGELOG entry (2026-07-12 Workflows/Commercial), the live CRM
+store `AEOS.prj\runtime\business\aeos_events.db` (binary, created on-machine),
+and catalog.sqlite ingest of the 13 Commercial descriptors.
 
 The estate copies are canonical once confirmed by Paul (Connection Pad remains
 the source of truth for hierarchy). This mirror exists so the plan is

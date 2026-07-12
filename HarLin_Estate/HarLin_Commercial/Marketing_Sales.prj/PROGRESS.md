@@ -13,10 +13,13 @@
   DNC-clear by agent, lost-without-reason. Won→client promotion + export
   verified.
 - Commercial Team Flowchart built (Flowcharts\Commercial_Team_Flowchart.html,
-  standalone-HTML house pattern) — for Alfred's Flowcharts menu.
-- OUTSTANDING (blocked on HarLin tunnel, auto-retrying): estate deployment
-  of 2026-07-12 changes, live CRM migration against AEOS store, gateway
-  register(), Alfred Flowcharts menu hook, crawler.py run.
+  standalone-HTML house pattern) — hooked into Alfred's Workflows menu
+  (console/boards.py, new `Commercial` group; console suite 25 passed).
+- Live CRM store CREATED: AEOS.prj\runtime\business\aeos_events.db
+  (7 tables + 3 views, schema v1). On-machine tests: CRM kit 6 passed.
+- System of Record: 13 Commercial descriptors ingested (catalog.sqlite).
+- Sole remaining integration: crm_tools.register() into the MCP Gateway
+  (next on-machine AEOS session; not done over the tunnel by design).
 
 ## 2026-07-11 — Commercial branch scaffolded (Claude planning session)
 - Master plan authored: COMMERCIAL_TEAM_PLAN.md (team of 10 agents + CRM).
