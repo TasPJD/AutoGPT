@@ -23,6 +23,20 @@ Notes:
 - Routine internal use **without** an external signal caps a project at S3 for valuation, however operationally embedded it is. This is deliberate: internal indispensability is not market evidence.
 - Stage transitions are the atomic events the monthly report counts, and they change value only at report time (VALUATION_FRAMEWORK §5.2).
 
+## 1a. Mapping to existing HarLin ladders (HP-22: integrate, never duplicate)
+
+The estate already runs two maturity vocabularies: the **HRL 0–9** lifecycle grid (`HarLin_OS\LIFECYCLE_STANDARD.md`) and the **pipeline ladder** (`HarLin_OS\PRODUCT_PIPELINE.md`: CONCEPT → RESEARCH → MVP → PRE-PROD → PRODUCTION → SCALE). This taxonomy is the *valuation lens* over the same reality — stages map, they don't compete. Where the grids disagree on an edge case, the LIFECYCLE_STANDARD gate question governs and this table gets a FRAMEWORK_CHANGELOG entry.
+
+| Valuation stage | HRL | Pipeline ladder | Lifecycle-grid gate question |
+|---|---|---|---|
+| S0 Conceived | 0–1 | CONCEPT | Worth preserving? Coherent? |
+| S1 Scaffolded & scoped | 2–3 | RESEARCH | Real opportunity? Consume active capacity? |
+| S2 Building / prototype | 4–5 | MVP (building) | In scope? Works for real use? |
+| S3 Functional (internal use) | 5–6 | MVP (dogfood) | Real user validated? (internal) |
+| S4 Validated (external signal) | 6–7 | PRE-PROD | Real *external* user validated? |
+| S5 Commercial-ready / launched | 7 | PRODUCTION | Sellable, supportable, defensible? |
+| S6 Revenue-bearing | 8–9 | PRODUCTION/SCALE | Sustained, measured? |
+
 ## 2. Period event definitions (pillar 4 counters)
 
 Counted per calendar month, from CHANGELOGs + catalog + Pulse:

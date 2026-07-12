@@ -1,7 +1,7 @@
 # TODO - Progress_Reporting.prj
 
 - 🟠 AWAITING CONFIRM (2026-07-12) — framework v1.0 delivered under Paul's delegation (decisions D1-D12, gate waived per D8). Paul to review DECISIONS.md and the v1.0 framework set post-hoc.
-- 🔴 Doc-alignment pass (blocked: estate access) — read Business Plan + Vision/Design docs; fill AV anchors (VALUATION_FRAMEWORK §2); verify D1 (AUD); confirm key-project list.
+- ✅ 2026-07-12 — Doc-alignment pass done (estate came back): AV anchor register filled from Elevation VISION + Millionaire PLAN_v0.4 + PRODUCT_PIPELINE; D1 (AUD) verified; taxonomy mapped to HRL/pipeline ladders (D14); Commercial streams report block added (D13).
 - 🔴 Backfill reports per Reports/BACKFILL_RUNSHEET.md: 2026-04 → 2026-05 → 2026-06 → 2026-07a → 2026-07b (with the before/after paradigm-shift section). Provenance-marked; validate_report.py gate.
 - 🔴 HarLin-side instrumentation build (Benchmarks/INSTRUMENTATION_SPEC.md build order): (1) outcome+intervention fields on dispatch close, (2) persist selftest, (3) probe timer, (4) storage snapshot + monthly rollup.
 - 🔴 Schedule snapshot_pillars.py (Task Scheduler, hourly is fine — idempotent per day) per D3.

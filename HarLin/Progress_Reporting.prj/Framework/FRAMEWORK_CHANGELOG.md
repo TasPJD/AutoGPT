@@ -1,5 +1,11 @@
 # Framework Changelog
 
+## v1.1 — 2026-07-12 (doc-alignment pass, estate back online)
+- AV anchor register added (VALUATION_FRAMEWORK §2a) from Elevation VISION + Millionaire PLAN_v0.4 + PRODUCT_PIPELINE; D1 (AUD) verified.
+- Taxonomy §1a maps S-stages onto HRL 0–9 and the pipeline ladder (D14, HP-22).
+- Template §6 gains the Commercial streams block with Millionaire gate status (D13).
+- Snapshot log third data point: AWAITING CONFIRM 148 → 239 in one day (flagged for 07b investigation).
+
 The framework itself is versioned: any change to definitions, ladders, weights, or template fields is logged here, because a metric whose definition silently changes is worse than no metric. Reports name the framework version they were produced under.
 
 ## v1.0 — 2026-07-12 (later same day)

@@ -16,6 +16,9 @@ Paul delegated framework decisions (2026-07-12): *"You make the decisions based 
 | D10 | **GEV-CF adopted as the valuation method** (VALUATION_FRAMEWORK v1.0): First Chicago 0.25/0.50/0.25 scenarios × fixed stage ladder 2/5/10/20/35/60% × cost-to-duplicate floor, platform rule, report-time-only revaluation | Research Findings A §2.3–2.4 (calibrated against CB Insights/Dealroom/Crunchbase VC funnels + Stevens & Burley/Cooper NPD funnels) | AV anchors still need the Business Plan read |
 | D11 | **Taxonomy v1.0: S4 requires an external demand signal.** Routine internal use caps at S3 for valuation — internal indispensability is not market evidence | Findings A: external validation is what moves success probability in every published funnel | no |
 | D12 | **Headline composite fixed: ΔGEV + cost per stage-advance** — defined once, never restated without a FRAMEWORK_CHANGELOG entry | Constellation-style stable composite (Findings A §1.6, recommendation 6) | no |
+| D13 | **Report gains a "Commercial streams" block inside §6** covering the Millionaire portfolio (Crucible-aaS, TenderBot, Phase C) with gate status G1–G5 — near-term revenue signals live there, and the founding-brief six keep their sections | Doc-alignment: `Millionaire.prj\PLAN_v0.4.md` is the revenue engine; a whole-of-HarLin report that omits it misses the objective function | Paul may prefer these fold under Nexus/other sections |
+| D14 | **Taxonomy mapped onto HRL + pipeline ladder** (taxonomy §1a) rather than standing alone; LIFECYCLE_STANDARD gate questions govern edge cases | HP-22 (integrate, never duplicate); `LIFECYCLE_STANDARD.md` + `PRODUCT_PIPELINE.md` pre-exist this framework | no |
+| — | **D1 VERIFIED 2026-07-12:** AUD confirmed — every Millionaire gate (G1–G5) and pricing line is AUD-denominated | doc-alignment pass | resolved |
 
 ## Pending on estate access (doc-alignment pass)
 

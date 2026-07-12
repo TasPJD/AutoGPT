@@ -36,7 +36,7 @@
 *GEV bridge (VALUATION_FRAMEWORK §7): last month → gates passed/failed → AV re-anchors → this month. Include floor-only conservative total, key-person disclosure, and the inputs table beside every number. Standing demotion question answered per project. "Not captured" until first scoring pass completes.*
 
 ## 6. Key project sections
-*One block each: Harness · OS · PAi · Alfred/AEOS · Nexus · GFM*
+*One block each: Harness · OS · PAi · Alfred/AEOS · Nexus · GFM, plus **Commercial streams** (Millionaire portfolio: Crucible-aaS, TenderBot, Phase C — with gate status vs G1–G5, per D13)*
 - What moved (evidence-linked) · stage + transitions this period
 - Burn vs scope this period (CM#12, from month 2)
 - Value note (measured GEV movement only — judgment stays in §11)
