@@ -1,0 +1,27 @@
+# Progress Reporting — Decision Log
+
+Paul delegated framework decisions (2026-07-12): *"You make the decisions based on the HarLin Business Plan and System level Vision and Design documents, and keep building."* Decisions below are made under that delegation; each names its grounding. Items grounded only in doctrine/context rather than a read of the Business Plan carry a **verify** flag for the doc-alignment pass (estate access was intermittently down when these were logged).
+
+| # | Decision | Grounding | Verify? |
+|---|---|---|---|
+| D1 | **Currency: AUD**, whole dollars, no cents in report figures | HarLin is an Australian business (operator, accounts) | verify against Business Plan financials on next estate access |
+| D2 | **Report audience: family-legible from day one.** Written so Harry, Lincoln, Madeline, Shanice, and Tim could pick it up — technical detail lives in appendices/links, the body reads as a board update | HP-39 (Family Access & Succession by Design) — settled doctrine; a succession-designed business needs succession-legible reporting | no — doctrine is sufficient |
+| D3 | **Pillar 5–6 snapshot: automate on the HarLin side** (small script appending orient counts to `Reports/_snapshots.log`); manual capture only as interim | HP-40 (Commercial-Grade by Default) — a measurement system fed by hand-copying is not commercial-grade; near-zero build cost | no — doctrine is sufficient |
+| D4 | **July cadence: `2026-07a` and `2026-07b` are both standalone report instances**; from 2026-08 a single monthly. `2026-07b` additionally carries the before/after comparison section (the paradigm-shift measurement) | Founding brief: the split is deliberate and boundary-marking | no — founding brief is explicit |
+| D5 | **Report format: Markdown canonical in `Reports/`**, with any dashboard/visual surface built later as a proper product surface, not a disposable HTML shell | HP-40 + Rule #21 (no disposable HTML shells as product surfaces without ADR'd exception) | no |
+| D6 | **Valuation method: stage-gated expected value with cost floor** as drafted in `VALUATION_FRAMEWORK.md` v0.1 — adopted as the working method; probability ladder and AV anchors remain provisional | PLAN §6 hypothesis; anti-gaming rules included | AV anchors REQUIRE Business Plan read; ladder calibration awaits Research Leg A |
+| D7 | ~~Framework gate retained~~ **REVISED by D8** — original conservative reading logged 2026-07-12 morning | superseded | — |
+| D8 | **Gate waived by Paul's explicit instruction** (2026-07-12: "Keep going, build it all. Don't hold back waiting for me. Get it all done"). Reports are written and valuation figures produced without waiting for a confirm step — protected instead by the framework's own honesty mechanisms: provenance marking, published inputs, confidence bands, validation script. Paul reviews the delivered artifacts after the fact | direct instruction supersedes the founding-brief gate; the anti-gaming rules carry the burden the gate carried | no |
+| D9 | **Research legs run in-session** rather than deferred to a separate Opus session — same scope as the briefs, delegated to research subagents with citation requirements | "Get it all done" + quota reset passed (post-Friday-5pm); briefs were written to be executor-agnostic | no |
+| D10 | **GEV-CF adopted as the valuation method** (VALUATION_FRAMEWORK v1.0): First Chicago 0.25/0.50/0.25 scenarios × fixed stage ladder 2/5/10/20/35/60% × cost-to-duplicate floor, platform rule, report-time-only revaluation | Research Findings A §2.3–2.4 (calibrated against CB Insights/Dealroom/Crunchbase VC funnels + Stevens & Burley/Cooper NPD funnels) | AV anchors still need the Business Plan read |
+| D11 | **Taxonomy v1.0: S4 requires an external demand signal.** Routine internal use caps at S3 for valuation — internal indispensability is not market evidence | Findings A: external validation is what moves success probability in every published funnel | no |
+| D12 | **Headline composite fixed: ΔGEV + cost per stage-advance** — defined once, never restated without a FRAMEWORK_CHANGELOG entry | Constellation-style stable composite (Findings A §1.6, recommendation 6) | no |
+| D13 | **Report gains a "Commercial streams" block inside §6** covering the Millionaire portfolio (Crucible-aaS, TenderBot, Phase C) with gate status G1–G5 — near-term revenue signals live there, and the founding-brief six keep their sections | Doc-alignment: `Millionaire.prj\PLAN_v0.4.md` is the revenue engine; a whole-of-HarLin report that omits it misses the objective function | Paul may prefer these fold under Nexus/other sections |
+| D14 | **Taxonomy mapped onto HRL + pipeline ladder** (taxonomy §1a) rather than standing alone; LIFECYCLE_STANDARD gate questions govern edge cases | HP-22 (integrate, never duplicate); `LIFECYCLE_STANDARD.md` + `PRODUCT_PIPELINE.md` pre-exist this framework | no |
+| — | **D1 VERIFIED 2026-07-12:** AUD confirmed — every Millionaire gate (G1–G5) and pricing line is AUD-denominated | doc-alignment pass | resolved |
+
+## Pending on estate access (doc-alignment pass)
+
+- Read Business Plan + system Vision/Design docs; fill AV anchors per key project in `VALUATION_FRAMEWORK.md` §2
+- Verify D1; capture any Business Plan reporting conventions the template should mirror
+- Confirm the key-project list (Harness, OS, PAi, Alfred/AEOS, Nexus, GFM) matches current Vision-doc framing
