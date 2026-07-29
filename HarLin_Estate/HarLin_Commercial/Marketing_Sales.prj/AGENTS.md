@@ -1,65 +1,46 @@
 ---
-name: Marketing_Sales.prj
+name: Marketing and Sales
 slug: marketing-sales-prj
 pillar: operations
 parent: HarLin Commercial
 level: 2
 status: active
-maturity: concept
+maturity: candidate
 canonical_path: C:\AI\HarLin_Commercial\Marketing_Sales.prj
 relocation_status: in_place
-cp_box_id: pending_crawler
-ai_context_doc_version: 1.0
-last_reviewed: 2026-07-11
+cp_box_id: pending_canonical_registration
+ai_context_doc_version: 1.3
+last_reviewed: 2026-07-14
 owner: Paul Dale
 ---
 
-# Marketing_Sales.prj
-
-> **Connection Pad is the canonical source of truth for this project's
-> position in the HarLin OS hierarchy.** New project — run crawler.py to
-> register the CP box.
+# Marketing and Sales
 
 ## Purpose
-The commercial engine's work-product home: go-to-market strategy, brand
-voice, playbooks, campaigns, and collateral for all HarLin market streams
-(nexus, consulting, labs, masha). This is what a human CMO's shared drive
-would hold. The AI agents that *do* this work live under
-`Internal Infrastructure\Commercial\` — machinery there, output here.
+
+HarLin's market-facing work-product home: go-to-market strategy, brand voice, campaigns, sales playbooks, collateral and commercial operating records. The agents that perform this work live under `C:\AI\HarLin_Labs\Internal Infrastructure\Commercial\`; machinery stays there and governed output stays here.
 
 ## Vision
-When the tech is ready, the market already knows us, the pipeline is
-already graded, and selling is execution — not a scramble.
 
-## Scope & Non-Goals
-- In scope: GTM strategy, brand & comms, content, campaign records,
-  playbooks, market-facing collateral, this plan and its ADRs.
-- Out of scope: agent charters and code (Internal Infrastructure\Commercial),
-  CRM data (AEOS store), market research corpus (sibling
-  `Market Intelligence\`), trading (sibling `Markets Trading\`), grant
-  work (sibling `Grant Applications\`).
+When an offer is ready, the target market, evidence, message, pipeline controls and follow-up system are ready with it, making selling a governed operation rather than a scramble.
 
-## Current Status
-Scaffolded 2026-07-11 with the master plan and CRM ADR. AWAITING CONFIRM:
-roster names, ADR-001, activation order. Nothing outbound has occurred.
+## Scope and boundary
 
-## Dependencies & Relationships
-- Depends on: AEOS (CRM store, ContextGraph, gateway), HarLin Identity
-  Library (brand), NexusBoard (product truth), Pipeline plays.
-- Used by: all ten commercial agents; Alfred (pipeline queries); PAi
-  morning brief.
-- Sibling/peer: Market Intelligence, Markets, Markets Trading, Lightning
-  Foundation, Millionaire.prj under HarLin Commercial.
+- In scope: GTM strategy, brand/comms, content, campaigns, playbooks, market-facing collateral and CRM operating policy.
+- Out of scope: agent code/charters, the AEOS data store, market-intelligence corpus, grants and trading.
+- Revenue Bridge owns portfolio prioritisation and routes qualified commercial opportunities here; this project owns CRM/campaign execution and must not duplicate Revenue Bridge's strategy register.
 
-## Key Files & Entry Points
-- `COMMERCIAL_TEAM_PLAN.md` — the master plan (start here)
-- `OPERATIONS_MANUAL.md` — how to run/inherit the engine (HP-39)
-- `ADR-001_CRM_Decision.md` — CRM decision record (ACCEPTED)
-- `GAP_ANALYSIS.md` — vs peer-grade systems; the gaps ledger
-- `BRAND_VOICE.md` — voice, tone, empathy standards (binding)
-- `RISKS.md` — risk register (quarterly review)
-- `Playbooks\` — SALES_PLAYBOOK, ICP_RUBRIC_v0, METRICS_DICTIONARY,
-  OPERATING_CADENCE
-- `Dashboards\pipeline_dashboard.html` — generated; also in Alfred → Workflows
-- `Flowcharts\Commercial_Team_Flowchart.html` — in Alfred → Workflows
-- `Campaigns\`, `Collateral\` — populated as work happens
+## Current status
+
+Paul confirmed the ten-agent roster, ADR-001 and Phase 0 activation set on 2026-07-12. Phase 0 agents and CRM v1/v2 foundations are built and tested. Live gateway registration, scheduled safeguards and selected integrations remain pending. The Decision and Evidence Systems campaign and earlier Revenue Bridge activation cell are now held behind the R5 reputation gate: no known-entity or reputation-bearing outreach is permitted during development.
+
+## Entry points
+
+- `COMMERCIAL_TEAM_PLAN.md` — confirmed master plan.
+- `DESIGN.md` and `ADR-001_CRM_Decision.md` — system boundary and CRM decision.
+- `OPERATIONS_MANUAL.md` — succession-executable operation.
+- `BRAND_VOICE.md`, `Playbooks\`, `Campaigns\`, `Collateral\` — governed market work.
+- `Campaigns\Decision_Evidence_Systems_202607\` — execution-ready, human-gated campaign for the radical Revenue Bridge front-door and validation offers.
+- `PROGRESS.md`, `TODO.md`, `CHANGELOG.md`, `RISK.md` — current truth and controls.
+
+ConnectionPad registration remains an explicit canonical-cascade item; the Catalog descriptor is authoritative for machine discovery in the interim.

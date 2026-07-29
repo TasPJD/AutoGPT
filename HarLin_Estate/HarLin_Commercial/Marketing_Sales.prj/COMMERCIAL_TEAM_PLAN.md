@@ -107,9 +107,8 @@ PatternEngine can mine improvement per discipline.
 **Runtime note:** charters are runtime-agnostic markdown + MCP tool access.
 Day one they run as Claude Code sessions / scheduled Routines against the
 MCP Gateway. If a dedicated agent runtime is adopted later (e.g. a Forge /
-AutoGPT-style loop — this repo being one candidate), the charters port
-unchanged. That is deliberate future-proofing: **the org design outlives any
-particular agent framework.**
+AutoGPT-style loop), the charters port unchanged. That is deliberate
+future-proofing: **the org design outlives any particular agent framework.**
 
 ---
 

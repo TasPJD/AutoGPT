@@ -6,6 +6,12 @@
 - [x] Confirm Phase 0 activation set (Quartermaster, Cartographer, Herald, Scribe)
 
 ## Phase 0 (in progress)
+
+- [x] Create the governed Revenue Bridge July 2026 campaign brief and pre-external action log.
+- [x] Create the Decision and Evidence Systems execution package: target/trigger waves, messages, discovery, qualification, proposal/scope controls and experiment dashboard.
+- [ ] POST-R5 ONLY: Paul-present execution of any Barton/Mira/SRK/expert-network or known-entity cell; route approved records through the CRM.
+- [ ] POST-R5 ONLY: approve the external three-offer test cell and validation lanes, including each person, claim, message, price floor and channel.
+- [ ] DEVELOPMENT PHASE: use only public/synthetic benchmarks and reputation-safe independent review; no target brief is active.
 - [x] Build CRM v1 kit: schema + migration + gateway tools + consent
       enforcement (sandbox + on-machine tested; see CRM.prj\PROGRESS.md)
 - [x] Create live CRM store (2026-07-12: aeos_events.db bootstrapped in
