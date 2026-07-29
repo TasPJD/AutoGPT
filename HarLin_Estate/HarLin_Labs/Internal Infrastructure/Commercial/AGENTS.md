@@ -42,6 +42,7 @@ infrastructure because agents are machinery, not customer-facing artefacts.
 | Shepherd.prj | Customer success & renewals | 3 |
 | Advocate.prj | Voice-of-customer & empathy loop | 3 |
 | CRM.prj | The CRM system itself (infrastructure, not a team member) | 0 |
+| Commercial_Assessor.prj | Cross-HarLin portfolio appraisal, execution economics and valuation preparation; separate from sales Assayer | 1 |
 
 ## Standing rules (bind every agent in this dir)
 1. All external sends/spends are human-gated (AWAITING CONFIRM → Paul).
@@ -60,8 +61,9 @@ CONFIRMED by Paul 2026-07-12 (roster, ADR-001, Phase 0 activation set).
 Phase 0 agents active (charters): Quartermaster, Cartographer, Herald, Scribe.
 CRM built, migrated to v2, and live-store bootstrapped (CRM.prj); all test
 lanes green. One integration step remains: wire `crm_tools.register()` into the
-MCP Gateway in an on-machine AEOS session. Phase 0 go-to-market activation is
-held pending Paul's green-light (outbound is human-gated).
+MCP Gateway in an on-machine AEOS session.
+External/market activation is on REPUTATION HOLD (Paul, 2026-07-14) — assets
+retained for post-R5 use; all outbound stays human-gated.
 Operator remote handle live: CCR Routine `trig_01U2b5UxUkCzVq9kF7BAAwcn`
 (on-demand poke, bound session `session_01SiRFCASrJC7MmTkf75maqw`) — see
 `Marketing_Sales.prj\OPERATIONS_MANUAL.md` §Reaching the engine remotely.

@@ -1,19 +1,30 @@
 # PROGRESS — Marketing_Sales.prj
 
-## 2026-07-29 — Remote-control session activated + watch status (Claude session)
+## 2026-07-29 — Remote-control session activated + canonical sync (Claude session)
 - Claude Code Remote (CCR) session registered as an on-demand operator handle:
   Routine "HarLin Commercial — Remote Control (on-demand poke)", trigger
   `trig_01U2b5UxUkCzVq9kF7BAAwcn`, bound to session
   `session_01SiRFCASrJC7MmTkf75maqw`. Poke-only (no schedule); resumes with full
-  context; smoke-tested round-trip OK 2026-07-29. Human gates unaffected — a
-  poke cannot bypass AWAITING CONFIRM. Documented in OPERATIONS_MANUAL.md
-  (§Reaching the engine remotely) and SESSION_PROTOCOL.md (§Remote activation).
-- PR TasPJD/AutoGPT#4 stable since 2026-07-12 (open/draft, 5 commits, head
-  5722bb3, mergeable clean; no reviews/comments). Standing hourly PR watch ran
-  clean throughout Paul's absence.
-- Unchanged single open build item: wire `crm_tools.register()` into the MCP
-  Gateway in an on-machine AEOS session (not done over the tunnel by design).
-  Phase 0 go-to-market activation remains held pending Paul's green-light.
+  context; smoke-tested round-trip OK 2026-07-29. A poke cannot bypass a human
+  gate (AWAITING CONFIRM). Documented in OPERATIONS_MANUAL.md (§Reaching the
+  engine remotely) and SESSION_PROTOCOL.md (§Remote activation).
+- PR TasPJD/AutoGPT#4 stable since 2026-07-12 (open/draft, mergeable clean);
+  standing hourly PR watch ran clean throughout Paul's absence.
+- Constraint recorded: external/market activation on reputation hold (Paul,
+  2026-07-14; assets retained for post-R5 use). Sole open build item unchanged:
+  wire `crm_tools.register()` into the MCP Gateway in an on-machine AEOS session.
+- Housekeeping: git mirror had fallen behind the estate (missing the 2026-07-14
+  campaign-prep entry + the Commercial_Assessor.prj roster addition); registers
+  and touched docs reconciled this session; fuller estate->repo resync flagged
+  to Paul.
+
+## 2026-07-14 — Decision and Evidence Systems campaign prepared
+
+- Converted the endorsed radical Revenue Bridge portfolio into a governed campaign package.
+- Added a campaign brief, limited target/trigger waves, message and discovery library, DECIDE qualification, objection handling, hypothesis/experiment log, one-page proposal pattern, scope builder, pricing guardrails, payment defaults and no-go terms.
+- Preserved the approved CRM as the contact/interaction system of record and all Paul/consent/send gates.
+- Recorded no external action; all experiment metrics remain zero.
+- Later on 2026-07-14 Paul placed the entire external campaign on reputation hold. Barton, known entities and existing relationships cannot be used for development validation; market activation assets are retained for post-R5 use only.
 
 ## 2026-07-12 (evening) — Gap analysis vs peer systems + build-out (Claude session)
 - GAP_ANALYSIS.md authored: benchmarked against Salesforce/HubSpot/Dynamics
