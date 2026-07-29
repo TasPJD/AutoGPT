@@ -1,5 +1,20 @@
 # PROGRESS — Marketing_Sales.prj
 
+## 2026-07-29 — Remote-control session activated + watch status (Claude session)
+- Claude Code Remote (CCR) session registered as an on-demand operator handle:
+  Routine "HarLin Commercial — Remote Control (on-demand poke)", trigger
+  `trig_01U2b5UxUkCzVq9kF7BAAwcn`, bound to session
+  `session_01SiRFCASrJC7MmTkf75maqw`. Poke-only (no schedule); resumes with full
+  context; smoke-tested round-trip OK 2026-07-29. Human gates unaffected — a
+  poke cannot bypass AWAITING CONFIRM. Documented in OPERATIONS_MANUAL.md
+  (§Reaching the engine remotely) and SESSION_PROTOCOL.md (§Remote activation).
+- PR TasPJD/AutoGPT#4 stable since 2026-07-12 (open/draft, 5 commits, head
+  5722bb3, mergeable clean; no reviews/comments). Standing hourly PR watch ran
+  clean throughout Paul's absence.
+- Unchanged single open build item: wire `crm_tools.register()` into the MCP
+  Gateway in an on-machine AEOS session (not done over the tunnel by design).
+  Phase 0 go-to-market activation remains held pending Paul's green-light.
+
 ## 2026-07-12 (evening) — Gap analysis vs peer systems + build-out (Claude session)
 - GAP_ANALYSIS.md authored: benchmarked against Salesforce/HubSpot/Dynamics
   capability, RevOps practice, MEDDICC-class methodology, SOC2-flavoured ops.

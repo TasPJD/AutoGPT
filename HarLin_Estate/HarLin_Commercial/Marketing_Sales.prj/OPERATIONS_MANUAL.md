@@ -32,6 +32,7 @@ work product lives in `HarLin_Commercial\Marketing_Sales.prj\`.
 | The gaps ledger | `GAP_ANALYSIS.md` |
 | The dashboard | `Dashboards\pipeline_dashboard.html` (also in Alfred → Workflows → Commercial) |
 | Git record | github.com/TasPJD/AutoGPT branch `claude/harlin-commercial-ai-team-lf1d12`, `HarLin_Estate/` |
+| Remote control of this engine (on-demand) | CCR Routine `trig_01U2b5UxUkCzVq9kF7BAAwcn` — see §Reaching the engine remotely |
 
 ## Operating it (the 90% case)
 
@@ -43,6 +44,23 @@ work product lives in `HarLin_Commercial\Marketing_Sales.prj\`.
 3. **Approve or decline** whatever lands in AWAITING CONFIRM. That queue is
    the steering wheel; everything else is machinery.
 4. **Quarterly:** retro + export + re-grade (OPERATING_CADENCE.md §Quarterly).
+
+## Reaching the engine remotely (on-demand)
+
+A Claude Code Remote (CCR) session runs this engine in the cloud and can be
+**poked on demand** — it resumes with full context and does whatever the poke
+says. This is the operator's remote handle; it fires nothing on its own.
+
+- **Routine:** `HarLin Commercial — Remote Control (on-demand poke)`
+- **Trigger ID:** `trig_01U2b5UxUkCzVq9kF7BAAwcn` (poke-only, no schedule)
+- **Bound session:** `session_01SiRFCASrJC7MmTkf75maqw` (resumes, not fresh)
+- **Fire it:** claude.ai → Routines, or any bridge/Alfred that can reach the
+  CCR layer; append run-specific instructions as the fire's text payload.
+- **With no payload:** it reports status (PR, gateway-wiring block, Phase 0)
+  and awaits direction.
+- **Gates still apply:** a remote poke cannot bypass the human gate — outbound,
+  pricing, and spend stay AWAITING CONFIRM regardless of how the session was
+  started. (Activated + smoke-tested 2026-07-29.)
 
 ## Recovery & continuity
 

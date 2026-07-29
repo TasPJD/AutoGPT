@@ -9,8 +9,8 @@ maturity: active
 canonical_path: C:\AI\HarLin_Labs\Internal Infrastructure\Commercial
 relocation_status: in_place
 cp_box_id: pending_crawler
-ai_context_doc_version: 1.1
-last_reviewed: 2026-07-12
+ai_context_doc_version: 1.2
+last_reviewed: 2026-07-29
 owner: Paul Dale
 ---
 
@@ -57,6 +57,12 @@ infrastructure because agents are machinery, not customer-facing artefacts.
 
 ## Current Status
 CONFIRMED by Paul 2026-07-12 (roster, ADR-001, Phase 0 activation set).
-Phase 0 agents active: Quartermaster, Cartographer, Herald, Scribe.
-CRM v1 kit built and sandbox-tested (CRM.prj — pre-prod; live migration
-pending an on-machine AEOS session). Run crawler.py to register CP boxes.
+Phase 0 agents active (charters): Quartermaster, Cartographer, Herald, Scribe.
+CRM built, migrated to v2, and live-store bootstrapped (CRM.prj); all test
+lanes green. One integration step remains: wire `crm_tools.register()` into the
+MCP Gateway in an on-machine AEOS session. Phase 0 go-to-market activation is
+held pending Paul's green-light (outbound is human-gated).
+Operator remote handle live: CCR Routine `trig_01U2b5UxUkCzVq9kF7BAAwcn`
+(on-demand poke, bound session `session_01SiRFCASrJC7MmTkf75maqw`) — see
+`Marketing_Sales.prj\OPERATIONS_MANUAL.md` §Reaching the engine remotely.
+Run crawler.py to register CP boxes.

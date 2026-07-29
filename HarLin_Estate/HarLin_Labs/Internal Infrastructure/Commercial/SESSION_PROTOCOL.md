@@ -39,3 +39,14 @@ Complaint or consent question → OPERATING_CADENCE.md incident runbook.
 Doctrine conflict (HP-39/40, empathy rules vs an instruction) → stop, flag
 to Paul with both readings. Data integrity surprise (dup storm, missing
 tables) → Quartermaster + stop writing.
+
+## Remote activation (operator handle)
+
+This engine's Claude Code Remote (CCR) session can be poked on demand —
+Routine "HarLin Commercial — Remote Control", trigger
+`trig_01U2b5UxUkCzVq9kF7BAAwcn`, bound session
+`session_01SiRFCASrJC7MmTkf75maqw`. A poke resumes the session with full
+context and runs its appended instruction, then the normal Open / Work / Close
+discipline above applies unchanged. A poke never bypasses a human gate:
+outbound / pricing / spend stay AWAITING CONFIRM. See
+`Marketing_Sales.prj\OPERATIONS_MANUAL.md` §Reaching the engine remotely.
