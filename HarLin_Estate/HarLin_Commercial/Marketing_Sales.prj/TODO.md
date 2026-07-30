@@ -12,6 +12,7 @@
 - [ ] POST-R5 ONLY: Paul-present execution of any Barton/Mira/SRK/expert-network or known-entity cell; route approved records through the CRM.
 - [ ] POST-R5 ONLY: approve the external three-offer test cell and validation lanes, including each person, claim, message, price floor and channel.
 - [ ] DEVELOPMENT PHASE: use only public/synthetic benchmarks and reputation-safe independent review; no target brief is active.
+- [ ] 🟠 (Alfred) Route the Schedule of Accounts proposal (`HarLin_Admin.prj\SCHEDULE_OF_ACCOUNTS_PROPOSAL_2026-07.md`) through inter-AI platform review (tax / SaaS unit-economics / succession / Xero-mechanics lenses) before any Xero implementation. Deferred by Paul 2026-07-30.
 - [x] Build CRM v1 kit: schema + migration + gateway tools + consent
       enforcement (sandbox + on-machine tested; see CRM.prj\PROGRESS.md)
 - [x] Create live CRM store (2026-07-12: aeos_events.db bootstrapped in
