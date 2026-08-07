@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HarLin Commercial — Digital Team Flowchart</title>
+<style>
+  :root {
+    --bg: #f7f6f2; --panel: #ffffff; --ink: #1c2430; --muted: #5c6672;
+    --line: #c9cdd4; --accent: #1f6f54; --gate: #b3541e; --crm: #2b4a7a;
+    --intel: #6d5a9c; --brand: #9c3d63; --post: #3d7a8c;
+    --chip: #eceae4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181e; --panel: #1d232c; --ink: #e8e6e1; --muted: #9aa3ad;
+      --line: #3a424d; --accent: #4dab87; --gate: #d97b3f; --crm: #6f94c9;
+      --intel: #a08fd0; --brand: #cf7098; --post: #6fa8ba;
+      --chip: #262d37;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font: 15px/1.5 "Segoe UI", system-ui, sans-serif; padding: 28px 24px 48px;
+  }
+  header { max-width: 1080px; margin: 0 auto 6px; }
+  h1 { font-size: 1.35rem; letter-spacing: .01em; }
+  .sub { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+  .wrap { max-width: 1080px; margin: 18px auto 0; overflow-x: auto; }
+  .lane {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px 16px; margin-bottom: 14px; min-width: 900px;
+  }
+  .lane h2 {
+    font-size: .78rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .row { display: flex; align-items: stretch; gap: 0; }
+  .node {
+    border: 1.5px solid var(--line); border-radius: 8px; padding: 8px 12px;
+    background: var(--chip); min-width: 128px; flex: 1;
+  }
+  .node b { display: block; font-size: .92rem; }
+  .node span { color: var(--muted); font-size: .78rem; line-height: 1.35; display: block; margin-top: 2px; }
+  .agent-intel  { border-color: var(--intel); }
+  .agent-demand { border-color: var(--accent); }
+  .agent-brand  { border-color: var(--brand); }
+  .agent-post   { border-color: var(--post); }
+  .gate {
+    border: 1.5px dashed var(--gate); color: var(--gate);
+    border-radius: 8px; padding: 8px 10px; min-width: 108px; flex: .8;
+    background: transparent; text-align: center; align-self: center;
+  }
+  .gate b { display: block; font-size: .82rem; }
+  .gate span { font-size: .72rem; display: block; }
+  .arrow {
+    align-self: center; color: var(--muted); padding: 0 8px; font-size: 1.1rem;
+    flex: 0 0 auto; user-select: none;
+  }
+  .crm-spine {
+    background: var(--panel); border: 2px solid var(--crm); border-radius: 10px;
+    padding: 12px 16px; margin: 4px 0 14px; min-width: 900px; text-align: center;
+  }
+  .crm-spine b { color: var(--crm); font-size: 1rem; letter-spacing: .02em; }
+  .crm-spine span { color: var(--muted); font-size: .8rem; display: block; margin-top: 2px; }
+  .orchestration {
+    display: flex; gap: 14px; min-width: 900px; margin-bottom: 14px;
+  }
+  .orch-box {
+    flex: 1; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 10px 14px;
+  }
+  .orch-box b { font-size: .92rem; }
+  .orch-box span { color: var(--muted); font-size: .78rem; display: block; }
+  .paul { border: 1.5px solid var(--gate); }
+  .paul b { color: var(--gate); }
+  .loop {
+    color: var(--muted); font-size: .8rem; text-align: center; margin: -6px 0 14px;
+    min-width: 900px;
+  }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; max-width: 1080px; margin: 4px auto 0; color: var(--muted); font-size: .78rem; }
+  .key { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  footer { max-width: 1080px; margin: 22px auto 0; color: var(--muted); font-size: .75rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>HarLin Commercial — Digital Team Flowchart</h1>
+  <div class="sub">How the ten-agent commercial engine moves a market from mapped to renewed · v1.0 · 2026-07-12 · status: CONFIRMED (Paul, 2026-07-12)</div>
+</header>
+
+<div class="wrap">
+
+  <div class="orchestration">
+    <div class="orch-box paul">
+      <b>Paul — the only closer</b>
+      <span>Every external send, price, and commitment passes an AWAITING CONFIRM gate. Agents draft; Paul signs.</span>
+    </div>
+    <div class="orch-box">
+      <b>Foreman — Commercial Director</b>
+      <span>Routes work, runs the weekly standup, keeps every opportunity moving or honestly parked. Reports via Alfred/Pulse morning brief.</span>
+    </div>
+  </div>
+
+  <div class="lane">
+    <h2>1 · Intelligence — map before selling</h2>
+    <div class="row">
+      <div class="node agent-intel"><b>CompetitorRadar</b><span>weekly competitor digests (existing AEOS agent)</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-intel"><b>Cartographer</b><span>Market Map: TAM/SAM/SOM per stream, segments, ICP rubric vN</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-intel"><b>Account universe</b><span>named companies per stream, seeded into the CRM</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-intel"><b>ICP rubric → Assayer</b><span>versioned; back-tested quarterly against won/lost</span></div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <h2>2 · Demand generation — find and grade the ore</h2>
+    <div class="row">
+      <div class="node agent-demand"><b>Prospector</b><span>targets + trigger events (drilling programs, raises, hires) — public sources only</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-demand"><b>Assayer</b><span>grades A/B/C/D vs ICP; enriches; records rationale</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-demand"><b>Why-now brief</b><span>A/B accounts only: what changed, who, which offering, angle</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-demand"><b>Queue for Envoy</b><span>D-grades parked with reasons — no spam, ever</span></div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <h2>3 · Brand &amp; content — say it once, well</h2>
+    <div class="row">
+      <div class="node agent-brand"><b>Herald</b><span>message architecture, launch plans, LinkedIn/PR drafts</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-brand"><b>Scribe</b><span>case studies, white papers, decks, sequence copy</span></div>
+      <div class="arrow">→</div>
+      <div class="gate"><b>⛔ GATE</b><span>client OK + Paul confirm</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-brand"><b>Published / armed</b><span>collateral to Envoy; posts under Paul's hand</span></div>
+    </div>
+  </div>
+
+  <div class="lane">
+    <h2>4 · Sales — one relationship at a time</h2>
+    <div class="row">
+      <div class="node agent-demand"><b>Envoy drafts</b><span>personalised outreach from why-now brief + consent check</span></div>
+      <div class="arrow">→</div>
+      <div class="gate"><b>⛔ GATE</b><span>Paul approves send</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-demand"><b>Reply → meeting</b><span>prep brief for Paul; 2 silent sequences → 6-month rest</span></div>
+      <div class="arrow">→</div>
+      <div class="gate"><b>⛔ GATE</b><span>pricing &amp; proposal — Paul</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-demand"><b>WON / LOST</b><span>outcome + reason recorded; lost gets a gracious close</span></div>
+    </div>
+  </div>
+
+  <div class="crm-spine">
+    <b>CRM — the spine (AEOS · ClientLedger extension · ADR-001)</b>
+    <span>companies · contacts+consent · interactions · opportunities · campaigns — sole inter-agent memory · MCP Gateway is the only write path · mirrors to ContextGraph · quarterly export to HL_Data</span>
+  </div>
+
+  <div class="lane">
+    <h2>5 · Post-sale — the loudest marketing is a delighted client</h2>
+    <div class="row">
+      <div class="node agent-post"><b>Shepherd</b><span>onboarding, health scores, renewal runway T-120/60/30</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-post"><b>Advocate</b><span>voice-of-customer synthesis, monthly empathy audit</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-post"><b>NexusBoard</b><span>user_feedback + bugs → product truth</span></div>
+      <div class="arrow">→</div>
+      <div class="node agent-post"><b>Referrals &amp; renewals</b><span>expansion signals back to Foreman</span></div>
+    </div>
+  </div>
+
+  <div class="loop">⟲ Learning loop: every outcome feeds LEARNINGS.md → PatternEngine → quarterly retro → charter &amp; rubric amendments (AWAITING CONFIRM)</div>
+
+</div>
+
+<div class="legend">
+  <span class="key"><span class="swatch" style="background:var(--intel)"></span>Intelligence</span>
+  <span class="key"><span class="swatch" style="background:var(--accent)"></span>Demand gen &amp; sales</span>
+  <span class="key"><span class="swatch" style="background:var(--brand)"></span>Brand &amp; content</span>
+  <span class="key"><span class="swatch" style="background:var(--post)"></span>Post-sale</span>
+  <span class="key"><span class="swatch" style="background:var(--crm)"></span>CRM spine</span>
+  <span class="key"><span class="swatch" style="border:1.5px dashed var(--gate)"></span>Human gate (Paul)</span>
+</div>
+
+<footer>
+  Source: HarLin_Commercial\Marketing_Sales.prj\COMMERCIAL_TEAM_PLAN.md · Agents: HarLin_Labs\Internal Infrastructure\Commercial\ · Standalone HTML per house dashboard pattern (internal visualisation, not a product surface).
+</footer>
+</body>
+</html>

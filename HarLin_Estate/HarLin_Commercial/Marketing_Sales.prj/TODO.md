@@ -1,0 +1,59 @@
+# TODO — Marketing_Sales.prj
+
+## Confirmed by Paul 2026-07-12
+- [x] Confirm/rename agent roster (names are proposals; roles are the substance)
+- [x] Approve ADR-001 (CRM on AEOS)
+- [x] Confirm Phase 0 activation set (Quartermaster, Cartographer, Herald, Scribe)
+
+## Phase 0 (in progress)
+
+- [x] Create the governed Revenue Bridge July 2026 campaign brief and pre-external action log.
+- [x] Create the Decision and Evidence Systems execution package: target/trigger waves, messages, discovery, qualification, proposal/scope controls and experiment dashboard.
+- [ ] POST-R5 ONLY: Paul-present execution of any Barton/Mira/SRK/expert-network or known-entity cell; route approved records through the CRM.
+- [ ] POST-R5 ONLY: approve the external three-offer test cell and validation lanes, including each person, claim, message, price floor and channel.
+- [ ] DEVELOPMENT PHASE: use only public/synthetic benchmarks and reputation-safe independent review; no target brief is active.
+- [ ] 🟠 (Alfred) Route the Schedule of Accounts proposal (`HarLin_Admin.prj\SCHEDULE_OF_ACCOUNTS_PROPOSAL_2026-07.md`) through inter-AI platform review (tax / SaaS unit-economics / succession / Xero-mechanics lenses) before any Xero implementation. Deferred by Paul 2026-07-30.
+- [x] Build CRM v1 kit: schema + migration + gateway tools + consent
+      enforcement (sandbox + on-machine tested; see CRM.prj\PROGRESS.md)
+- [x] Create live CRM store (2026-07-12: aeos_events.db bootstrapped in
+      AEOS runtime\business — 7 tables, 3 views, schema v1)
+- [x] Hook Commercial_Team_Flowchart.html into Alfred's Workflows menu
+      (console/boards.py `Commercial` group; 25 console tests green)
+- [x] Register Commercial descriptors in the System of Record
+      (catalog.py ingest — 13 slugs verified in catalog.sqlite)
+- [ ] Wire crm_tools.register() into the MCP Gateway (next AEOS on-machine
+      session — not attempted over the tunnel; would restart the live gateway)
+
+## Gap-analysis allocations (2026-07-12 — see GAP_ANALYSIS.md for context)
+- [ ] (0 → Paul/AEOS) Gateway wiring — the E1 standing item above
+- [ ] (1 → Quartermaster) Scheduled weekly crm_export + snapshot via Windows
+      Task Scheduler (E2; needs on-machine shell)
+- [ ] (1 → Quartermaster+AEOS) ContextGraph mirror job: crm companies/contacts
+      ↔ COMPANY/PERSON nodes (E3; touches live brain — on-machine session)
+- [ ] (1 → Quartermaster) Dashboard + KPI feed into PAi morning brief once
+      gateway tools are live (B3)
+- [ ] (1 → Herald+Scribe) Campaign-brief & case-study templates with the
+      first real campaign (C4)
+- [ ] (2 → Envoy/Herald, HARD GATE) Unsubscribe/preference infrastructure
+      BEFORE any outbound email sequence (E5 — Spam Act mechanics)
+- [ ] (2 → Quartermaster) Forecast categories column (A9); fuzzy company
+      dedup in hygiene runs (A4); attribution model doc (C5)
+- [ ] (2 → Quartermaster) Xero reconciliation of won deals vs invoices (E4)
+- [ ] (3 → gateway) Per-agent authenticated identity if unattended agents
+      arrive (E7)
+- [ ] ContextGraph mirror job (companies/contacts ↔ COMPANY/PERSON nodes)
+- [ ] Cartographer #1: NEXUS market map v1 (fold in existing Market
+      Intelligence material; ≥200 companies mapped and streamed)
+- [ ] Herald/Scribe #1: BRAND_VOICE v1 from HarLin Identity Library
+- [ ] Scribe: 3 seed case studies from active engagements (Barton Gold
+      Challenger/Tunkillia et al. — client-approved before any use)
+- [ ] Quartermaster: pipeline dashboard (standalone-HTML house pattern)
+- [ ] Arm "Quarterly Commercial Retro" play in PIPELINE.md
+- [ ] Migrate existing consulting clients into CRM from ClientLedger
+
+## Later phases
+- [ ] Prospector/Assayer activation + first graded target list (Phase 1)
+- [ ] Envoy activation with human-gated sequences (Phase 2, NEXUS GA)
+- [ ] Shepherd/Advocate full cadence + renewals engine (Phase 3)
+- [ ] Evaluate disposable peripherals (email delivery adapter) only when
+      volume demands
