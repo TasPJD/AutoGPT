@@ -1,5 +1,25 @@
 # PROGRESS — CRM.prj
 
+## 2026-08-07 — v3: commercial measurement companion (Revenue reconciliation)
+- schema_v3.sql: companion tables for anonymous funnel measurement of
+  reputation-independent revenue experiments (Etsy/Gumroad/social), kept OUT
+  of the named-contact CRM tables — commercial_event (append-only, idempotent
+  natural key), commercial_cash (gross/fees/refunds/net distinct), 
+  commercial_experiment_state (measured comparison; Revenue owns the decision),
+  commercial_snapshot, commercial_event_receipt. Picked up automatically by
+  crm_migrate.py (v1+v2+v3 apply clean; schema_version -> 3).
+- commercial_events.py: single write path — provenance-enforced ingest (HP-12),
+  idempotent re-ingest, cash guard (net only with a receipt), experiment gate,
+  daily-exception + weekly-learning reports, snapshot generator. Pure sqlite;
+  dry-runs against a sandbox DB copy, not wired to the live gateway.
+- test_commercial_events.py: 8/8 acceptance tests green (idempotency,
+  test-traffic exclusion, cash distinctness, attribution honesty, multi-platform
+  mapping, experiment gate, provenance, reports+snapshot).
+- Reconciled with Revenue Bridge under PROC-RB-COMMERCIAL-INTERFACE-20260731
+  (TT-0606 request / TT-0607 response). BUILT+TESTED off-machine; NOT wired,
+  NOT populated. On-machine deps remain: gateway registration, scheduler, Alfred
+  read-only surface.
+
 ## 2026-07-12 (evening) — v2: parity with peer-CRM governance (gap-analysis build)
 - schema_v2.sql: crm_audit (append-only, refusals audited too),
   crm_stage_history, crm_pipeline_snapshots, email dedup unique index
