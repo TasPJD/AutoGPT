@@ -1,5 +1,22 @@
 # PROGRESS — CRM.prj
 
+## 2026-08-07 (later) — v3 S2 alignment + S5->S2 adapter + supplied-snapshot ingest
+- Aligned S2 to the Revenue S5 raw contract (TT-0613): commercial_event gains
+  unit + analysis_inclusion; value_basis widened for point_in_time; funnel
+  stages gain operational; attribution_confidence is now textual (S5 vocab).
+  Reports/qualified sums exclude analysis_inclusion='evidence_only' so operator
+  traffic is kept as evidence but out of qualified-demand analysis.
+- commercial_snapshot_adapter.py: deterministic S5->S2 adapter — one raw
+  snapshot explodes into one S2 record per metric; null source_object_id gets a
+  stable scope:account key so idempotency holds; monetary unit -> currency.
+- Ingested the supplied authenticated snapshots in a sandbox (4 Etsy + 1
+  Gumroad = 20 events): all inserted, re-ingest fully idempotent, 37 append-only
+  receipts; weekly funnel all-zero after evidence-only exclusion; verified cash
+  AU$0 (matches Revenue baseline). Reports + snapshot generated.
+- Tests: 13/13 green (8 acceptance + 5 adapter). Completion returned to the
+  canonical ledger. Still BUILT+TESTED only; not wired/populated on the live
+  store. On-machine deps unchanged: S6 gateway, S7 scheduler, S8 Alfred surface.
+
 ## 2026-08-07 — v3: commercial measurement companion (Revenue reconciliation)
 - schema_v3.sql: companion tables for anonymous funnel measurement of
   reputation-independent revenue experiments (Etsy/Gumroad/social), kept OUT

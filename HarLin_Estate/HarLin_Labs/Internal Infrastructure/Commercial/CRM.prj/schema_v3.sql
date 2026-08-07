@@ -34,10 +34,12 @@ CREATE TABLE IF NOT EXISTS commercial_event (
   funnel_stage          TEXT NOT NULL,           -- exposure/interest/intent/conversion/retention/refund
   metric_name           TEXT NOT NULL,           -- impressions/visits/favourites/carts/orders/...
   metric_value          REAL NOT NULL,
-  currency              TEXT,                     -- only where the metric is monetary
-  value_basis           TEXT NOT NULL,           -- cumulative | interval
+  unit                  TEXT,                     -- count/AUD/USD_cents/boolean_int/...
+  currency              TEXT,                     -- set only where the metric is monetary
+  value_basis           TEXT NOT NULL,           -- cumulative | interval | point_in_time
+  analysis_inclusion    TEXT NOT NULL DEFAULT 'include',  -- include | evidence_only (S5)
   attribution_source    TEXT NOT NULL DEFAULT 'unknown',
-  attribution_confidence REAL,                   -- 0..1; NULL when genuinely unknown
+  attribution_confidence TEXT,                   -- S5 vocab: platform_reported/direct/NULL
   evidence_locator      TEXT NOT NULL,           -- where the raw evidence lives (HP-12)
   collection_method     TEXT NOT NULL,           -- manual/api/export/screenshot-ocr/...
   collected_at          TEXT NOT NULL,

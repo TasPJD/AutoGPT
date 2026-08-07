@@ -33,8 +33,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 SCHEMA_V3 = HERE / "schema_v3.sql"
 
-FUNNEL_STAGES = {"exposure", "interest", "intent", "conversion", "retention", "refund"}
-VALUE_BASES = {"cumulative", "interval"}
+FUNNEL_STAGES = {"exposure", "interest", "intent", "conversion", "retention",
+                 "refund", "operational"}
+VALUE_BASES = {"cumulative", "interval", "point_in_time"}
 REQUIRED_FIELDS = (
     "observed_period_start", "observed_period_end", "source_platform",
     "source_object_id", "funnel_stage", "metric_name", "metric_value",
@@ -95,16 +96,17 @@ def ingest_event(cx: sqlite3.Connection, rec: dict) -> dict:
         """INSERT OR IGNORE INTO commercial_event
            (event_id, observed_period_start, observed_period_end, source_platform,
             source_object_id, commercial_item_id, product_id, listing_id, campaign_id,
-            experiment_id, funnel_stage, metric_name, metric_value, currency,
-            value_basis, attribution_source, attribution_confidence, evidence_locator,
-            collection_method, collected_at, is_test_traffic, data_quality_flags,
-            ingest_run_id, row_hash)
-           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+            experiment_id, funnel_stage, metric_name, metric_value, unit, currency,
+            value_basis, analysis_inclusion, attribution_source, attribution_confidence,
+            evidence_locator, collection_method, collected_at, is_test_traffic,
+            data_quality_flags, ingest_run_id, row_hash)
+           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
         (event_id, rec["observed_period_start"], rec["observed_period_end"],
          rec["source_platform"], rec["source_object_id"], rec.get("commercial_item_id"),
          rec.get("product_id"), rec.get("listing_id"), rec.get("campaign_id"),
          rec.get("experiment_id"), rec["funnel_stage"], rec["metric_name"],
-         float(rec["metric_value"]), rec.get("currency"), rec["value_basis"],
+         float(rec["metric_value"]), rec.get("unit"), rec.get("currency"), rec["value_basis"],
+         rec.get("analysis_inclusion", "include"),
          rec.get("attribution_source", "unknown"), rec.get("attribution_confidence"),
          rec["evidence_locator"], rec["collection_method"], rec["collected_at"],
          1 if rec.get("is_test_traffic") else 0, rec.get("data_quality_flags"),
@@ -181,7 +183,7 @@ def upsert_experiment_state(cx: sqlite3.Connection, rec: dict) -> dict:
 
 def _conversion_sum(cx, stage: str, where: str = "", args=()) -> float:
     q = ("SELECT COALESCE(SUM(metric_value),0) FROM commercial_event "
-         "WHERE funnel_stage=? AND is_test_traffic=0")
+         "WHERE funnel_stage=? AND is_test_traffic=0 AND analysis_inclusion='include'")
     return cx.execute(q + where, (stage, *args)).fetchone()[0]
 
 
@@ -200,12 +202,14 @@ def report_daily_exceptions(cx: sqlite3.Connection) -> list[dict]:
         out.append({"type": "test_traffic_conversion", "event_id": r[0], "platform": r[1]})
     for r in cx.execute(
         """SELECT product_id,
-                  SUM(CASE WHEN funnel_stage='exposure' THEN metric_value ELSE 0 END) exp,
+                  SUM(CASE WHEN funnel_stage IN ('exposure','interest','intent')
+                           THEN metric_value ELSE 0 END) upstream,
                   SUM(CASE WHEN funnel_stage='conversion' THEN metric_value ELSE 0 END) conv
-           FROM commercial_event WHERE is_test_traffic=0 AND product_id IS NOT NULL
+           FROM commercial_event
+           WHERE is_test_traffic=0 AND analysis_inclusion='include' AND product_id IS NOT NULL
            GROUP BY product_id"""):
         if r[1] and r[1] > 0 and (r[2] or 0) == 0:
-            out.append({"type": "zero_conversion", "product_id": r[0], "exposure": r[1]})
+            out.append({"type": "zero_conversion", "product_id": r[0], "upstream": r[1]})
     return out
 
 
@@ -214,7 +218,7 @@ def report_weekly_learning(cx: sqlite3.Connection) -> dict:
     funnel: dict[str, dict[str, float]] = {}
     for r in cx.execute(
         """SELECT product_id, funnel_stage, SUM(metric_value)
-           FROM commercial_event WHERE is_test_traffic=0
+           FROM commercial_event WHERE is_test_traffic=0 AND analysis_inclusion='include'
            GROUP BY product_id, funnel_stage"""):
         funnel.setdefault(r[0] or "(unassigned)", {})[r[1]] = r[2]
     cash = {}
